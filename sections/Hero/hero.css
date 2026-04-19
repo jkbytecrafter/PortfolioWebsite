@@ -64,7 +64,8 @@
 }
 
 #typewriter {
-  color: var(--lime);
+  color: var(--violet);
+  font-weight: 800;
 }
 
 .cursor-blink {
