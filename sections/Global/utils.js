@@ -13,9 +13,9 @@
   const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
   camera.position.set(0, 0, 18);
 
-  /* -- Torus Knot (main centrepiece) -- */
-  const torusGeo = new THREE.TorusKnotGeometry(5, 1.2, 128, 20, 2, 3);
-  const torusMat = new THREE.MeshStandardMaterial({
+  /* -- Tech Core (main centrepiece) -- */
+  const mainGeo = new THREE.IcosahedronGeometry(6, 1);
+  const mainMat = new THREE.MeshStandardMaterial({
     color: 0xffffff,
     emissive: 0x06B6D4,
     emissiveIntensity: 0.05,
@@ -25,12 +25,12 @@
     transparent: true,
     opacity: 0.35,
   });
-  const torus = new THREE.Mesh(torusGeo, torusMat);
-  scene.add(torus);
+  const mainObject = new THREE.Mesh(mainGeo, mainMat);
+  scene.add(mainObject);
 
   /* -- Wireframe overlay -- */
   const wireMat = new THREE.MeshBasicMaterial({ color: 0xEC4899, wireframe: true, transparent: true, opacity: 0.12 });
-  const wire = new THREE.Mesh(torusGeo, wireMat);
+  const wire = new THREE.Mesh(mainGeo, wireMat);
   scene.add(wire);
 
   /* -- Particle field -- */
@@ -69,13 +69,13 @@
   const clock = new THREE.Clock();
   function animate() {
     const t = clock.getElapsedTime();
-    torus.rotation.x = 0.3 * t + targetY * 0.5;
-    torus.rotation.y = 0.2 * t + targetX * 0.5;
-    wire.rotation.x = torus.rotation.x;
-    wire.rotation.y = torus.rotation.y;
+    mainObject.rotation.x = 0.3 * t + targetY * 0.5;
+    mainObject.rotation.y = 0.2 * t + targetX * 0.5;
+    wire.rotation.x = mainObject.rotation.x;
+    wire.rotation.y = mainObject.rotation.y;
 
     // Pulsing emissive
-    torusMat.emissiveIntensity = 0.12 + 0.06 * Math.sin(t * 2);
+    mainMat.emissiveIntensity = 0.05 + 0.03 * Math.sin(t * 2);
 
     renderer.render(scene, camera);
     requestAnimationFrame(animate);
