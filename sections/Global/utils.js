@@ -3,6 +3,7 @@
    ============================ */
 
 // ── THREE.JS HERO ─────────────────────────────────────────
+/* Temporarily removed the 3D design
 (function initHero() {
   const canvas = document.getElementById('hero-canvas');
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
@@ -88,6 +89,7 @@
     renderer.setSize(window.innerWidth, window.innerHeight);
   });
 })();
+*/
 
 // ── INTERSECTION OBSERVER for reveal ──────────────────────
 const revealEls = document.querySelectorAll('.reveal, .timeline-item, .edu-card');
