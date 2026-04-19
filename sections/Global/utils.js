@@ -16,11 +16,11 @@
   /* -- Torus Knot (main centrepiece) -- */
   const torusGeo = new THREE.TorusKnotGeometry(5, 1.2, 128, 20, 2, 3);
   const torusMat = new THREE.MeshStandardMaterial({
-    color: 0x6366F1,
+    color: 0xffffff,
     emissive: 0x06B6D4,
-    emissiveIntensity: 0.18,
-    metalness: 0.75,
-    roughness: 0.25,
+    emissiveIntensity: 0.05,
+    metalness: 0.9,
+    roughness: 0.1,
     wireframe: false,
   });
   const torus = new THREE.Mesh(torusGeo, torusMat);
