@@ -1,30 +1,30 @@
 /* ===== DESIGN TOKENS ===== */
 :root {
-  --bg: #1a1530;
-  --bg-alt: #231d3e;
-  --surface: rgba(91, 35, 255, 0.07);
-  --surface-h: rgba(91, 35, 255, 0.13);
-  --border: rgba(91, 35, 255, 0.22);
+  --bg: #FAFAFA;
+  --bg-alt: #F1F5F9;
+  --surface: rgba(0, 0, 0, 0.02);
+  --surface-h: rgba(99, 102, 241, 0.08);
+  --border: rgba(0, 0, 0, 0.08);
 
-  /* Colorhunt palette: #362F4F #5B23FF #008BFF #E4FF30 */
-  --dp: #362F4F;
-  --violet: #5B23FF;
-  --blue-mid: #008BFF;
-  --lime: #E4FF30;
+  /* New palette: Indigo, Cyan, Rose */
+  --dp: #FFFFFF;
+  --violet: #6366F1;
+  --blue-mid: #06B6D4;
+  --lime: #EC4899;
 
   /* Semantic aliases */
-  --coral: #5B23FF;
-  --cyan: #008BFF;
-  --purple: #E4FF30;
-  --yellow: #E4FF30;
-  --blue: #008BFF;
-  --blue-light: #008BFF;
-  --cream: #E4FF30;
-  --taupe: #a09cc0;
+  --coral: #6366F1;
+  --cyan: #06B6D4;
+  --purple: #EC4899;
+  --yellow: #F59E0B;
+  --blue: #06B6D4;
+  --blue-light: #0EA5E9;
+  --cream: #FFFFFF;
+  --taupe: #94A3B8;
 
-  --text: #ede8ff;
-  --text-muted: #a09cc0;
-  --text-dim: #5a5470;
+  --text: #0F172A;
+  --text-muted: #475569;
+  --text-dim: #94A3B8;
 
   --font: 'Outfit', sans-serif;
   --mono: 'JetBrains Mono', monospace;

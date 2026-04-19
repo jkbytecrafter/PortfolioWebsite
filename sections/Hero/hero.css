@@ -48,7 +48,7 @@
   font-weight: 900;
   letter-spacing: -0.03em;
   line-height: 1;
-  background: linear-gradient(150deg, #fff 0%, var(--blue-mid) 50%, var(--lime) 100%);
+  background: linear-gradient(135deg, var(--text) 0%, var(--violet) 50%, var(--lime) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -116,10 +116,10 @@
 }
 
 .hero-socials a:hover {
-  border-color: var(--lime);
-  color: var(--lime);
+  border-color: var(--violet);
+  color: var(--violet);
   transform: translateY(-3px);
-  box-shadow: 0 0 18px rgba(228, 255, 48, 0.4);
+  box-shadow: 0 0 18px #6366F14D;
 }
 
 .hero-scroll-hint {

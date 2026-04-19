@@ -16,8 +16,8 @@
   /* -- Torus Knot (main centrepiece) -- */
   const torusGeo = new THREE.TorusKnotGeometry(5, 1.2, 128, 20, 2, 3);
   const torusMat = new THREE.MeshStandardMaterial({
-    color: 0x5B23FF,
-    emissive: 0x008BFF,
+    color: 0x6366F1,
+    emissive: 0x06B6D4,
     emissiveIntensity: 0.18,
     metalness: 0.75,
     roughness: 0.25,
@@ -27,7 +27,7 @@
   scene.add(torus);
 
   /* -- Wireframe overlay -- */
-  const wireMat = new THREE.MeshBasicMaterial({ color: 0xE4FF30, wireframe: true, transparent: true, opacity: 0.08 });
+  const wireMat = new THREE.MeshBasicMaterial({ color: 0xEC4899, wireframe: true, transparent: true, opacity: 0.12 });
   const wire = new THREE.Mesh(torusGeo, wireMat);
   scene.add(wire);
 
@@ -41,18 +41,18 @@
   }
   const pGeo = new THREE.BufferGeometry();
   pGeo.setAttribute('position', new THREE.BufferAttribute(pPositions, 3));
-  const pMat = new THREE.PointsMaterial({ color: 0xffffff, size: 0.09, transparent: true, opacity: 0.35 });
+  const pMat = new THREE.PointsMaterial({ color: 0x94A3B8, size: 0.09, transparent: true, opacity: 0.35 });
   scene.add(new THREE.Points(pGeo, pMat));
 
   /* -- Lights -- */
-  scene.add(new THREE.AmbientLight(0xffffff, 0.25));
-  const pointA = new THREE.PointLight(0x008BFF, 2.5, 60);
+  scene.add(new THREE.AmbientLight(0xffffff, 0.45));
+  const pointA = new THREE.PointLight(0x06B6D4, 2.5, 60);
   pointA.position.set(10, 10, 10);
   scene.add(pointA);
-  const pointB = new THREE.PointLight(0xE4FF30, 1.2, 60);
+  const pointB = new THREE.PointLight(0xEC4899, 1.2, 60);
   pointB.position.set(-10, -8, -5);
   scene.add(pointB);
-  const pointC = new THREE.PointLight(0x5B23FF, 2, 60);
+  const pointC = new THREE.PointLight(0x6366F1, 2, 60);
   pointC.position.set(0, -12, 8);
   scene.add(pointC);
 

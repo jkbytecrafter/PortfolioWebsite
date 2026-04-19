@@ -23,7 +23,7 @@
 
 .edu-card:hover {
   border-color: var(--violet);
-  box-shadow: 0 0 30px rgba(91, 35, 255, 0.2);
+  box-shadow: 0 0 30px #6366F133;
 }
 
 .edu-left {

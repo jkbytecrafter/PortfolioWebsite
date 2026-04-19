@@ -44,7 +44,7 @@
 }
 
 .flip-card-back {
-  background: linear-gradient(135deg, rgba(91, 35, 255, 0.2), rgba(0, 139, 255, 0.1));
+  background: linear-gradient(135deg, #6366F11A, #06B6D40D);
   border-color: var(--violet);
   transform: rotateY(180deg);
   display: flex;
@@ -116,9 +116,9 @@
   font-family: var(--mono);
   padding: 0.2rem 0.6rem;
   border-radius: 50px;
-  background: rgba(0, 139, 255, 0.12);
+  background: #06B6D41A;
   color: var(--blue-mid);
-  border: 1px solid rgba(0, 139, 255, 0.3);
+  border: 1px solid #06B6D44D;
 }
 
 .proj-hint {
@@ -174,13 +174,13 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 90% 0%, rgba(228, 255, 48, 0.06), transparent 60%);
+  background: radial-gradient(circle at 90% 0%, #EC48991A, transparent 60%);
   pointer-events: none;
 }
 
 .gh-stats-card:hover {
   border-color: var(--lime);
-  box-shadow: 0 0 28px rgba(228, 255, 48, 0.15);
+  box-shadow: 0 0 28px #EC489926;
   transform: translateY(-3px);
 }
 
@@ -226,8 +226,8 @@
   align-items: center;
   padding: 0.6rem 1.2rem;
   border-radius: 50px;
-  background: rgba(228, 255, 48, 0.06);
-  border: 1px solid rgba(228, 255, 48, 0.2);
+  background: #EC48991A;
+  border: 1px solid #EC489933;
 }
 
 .gh-pill-num {
@@ -265,10 +265,10 @@
   color: var(--lime);
   padding: 0.35rem 0.8rem;
   border-radius: 50px;
-  border: 1px solid rgba(228, 255, 48, 0.3);
+  border: 1px solid #EC48994D;
   transition: var(--transition);
 }
 
 .gh-verify-btn:hover {
-  background: rgba(228, 255, 48, 0.1);
+  background: #EC48991A;
 }
