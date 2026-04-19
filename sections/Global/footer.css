@@ -1,0 +1,18 @@
+/* ===== FOOTER ===== */
+#footer {
+  text-align: center;
+  padding: 2.5rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+#footer strong {
+  color: var(--text-muted);
+}
+
+.footer-sub {
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
