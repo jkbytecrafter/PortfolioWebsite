@@ -37,7 +37,7 @@
 
 .hero-greeting {
   font-size: 1.1rem;
-  color: var(--lime);
+  color: var(--violet);
   font-family: var(--mono);
   margin-bottom: 0.5rem;
   letter-spacing: 0.08em;
@@ -48,10 +48,8 @@
   font-weight: 900;
   letter-spacing: -0.03em;
   line-height: 1;
-  background: linear-gradient(135deg, var(--text) 0%, var(--violet) 50%, var(--lime) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text);
+  text-shadow: 0 0 24px rgba(255,255,255,0.9), 0 0 10px rgba(255,255,255,1);
   margin-bottom: 1rem;
 }
 
