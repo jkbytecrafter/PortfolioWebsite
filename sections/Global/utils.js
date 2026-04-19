@@ -22,6 +22,8 @@
     metalness: 0.9,
     roughness: 0.1,
     wireframe: false,
+    transparent: true,
+    opacity: 0.35,
   });
   const torus = new THREE.Mesh(torusGeo, torusMat);
   scene.add(torus);
