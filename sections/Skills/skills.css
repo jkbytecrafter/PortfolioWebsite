@@ -20,6 +20,10 @@
   transform: translateY(-4px);
 }
 
+.skill-category:last-child {
+  grid-column: 1 / -1;
+}
+
 .skill-cat-title {
   display: flex;
   align-items: center;
