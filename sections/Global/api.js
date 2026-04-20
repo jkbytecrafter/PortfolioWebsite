@@ -223,19 +223,20 @@ async function fetchGitHub() {
   }
 }
 
-// ── TRIGGER APIs WHEN COMPETITIVE SECTION IS VISIBLE ─────
+// ── TRIGGER APIs ON PAGE LOAD & WHEN COMPETITIVE IS VISIBLE ─
+// LeetCode + GitHub fetch immediately so Awards section always
+// shows live data even if user never scrolls to CP Stats.
+fetchLeetCode();
+fetchGitHub();
+
+// Codeforces + redundant LC/GH fetch when CP section is visible
 let cpFetched = false;
 const cpSection = document.getElementById('competitive');
 const cpObs = new IntersectionObserver(entries => {
   if (entries[0].isIntersecting && !cpFetched) {
     cpFetched = true;
-    fetchLeetCode();
     fetchCodeforces();
-    fetchGitHub();
     cpObs.disconnect();
   }
 }, { threshold: 0.2 });
 cpObs.observe(cpSection);
-
-// Also fetch GitHub early for about section mini-stats
-fetchGitHub();
