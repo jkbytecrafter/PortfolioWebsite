@@ -1,0 +1,114 @@
+/* ===== COURSES ===== */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.course-card {
+  background: var(--dp);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px var(--surface-h);
+  border-color: var(--blue-mid);
+}
+
+.course-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.course-badge {
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--violet);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.course-badge.elite {
+  background: rgba(8, 145, 178, 0.1);
+  color: var(--cyan);
+}
+
+.course-badge.silver {
+  background: rgba(181, 23, 158, 0.1);
+  color: var(--purple);
+}
+
+.course-score {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--text);
+}
+
+.course-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.course-inst {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.course-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+  margin-top: auto;
+}
+
+.course-meta svg {
+  width: 14px;
+  height: 14px;
+  opacity: 0.7;
+}
+
+.course-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  padding: 0.6rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.course-card:hover .course-btn {
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.1), rgba(181, 23, 158, 0.05));
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
