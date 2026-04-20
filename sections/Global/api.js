@@ -20,6 +20,13 @@ async function fetchLeetCode() {
     lcStatus.textContent = '✓ Live – updated just now';
     lcStatus.style.color = '#E4FF30';
     document.getElementById('lc-card')?.classList.add('data-loaded');
+
+    // ── Sync Awards & Certifications timeline entry ──────────
+    const awardSub = document.getElementById('award-lc-sub');
+    const awardDesc = document.getElementById('award-lc-desc');
+    if (awardSub) awardSub.textContent = `${total} problems solved`;
+    if (awardDesc) awardDesc.textContent =
+      `Easy: ${easy} · Medium: ${medium} · Hard: ${hard} — Arrays, Linked Lists, Graphs, Sliding Window, Binary Search, Tree Algorithms`;
   }
 
   // Endpoint 1: leetcode-stats-api.herokuapp.com (usually has CORS headers)
@@ -78,7 +85,7 @@ async function fetchLeetCode() {
   } catch (_) { }
 
   // Fallback: last-known cached values
-  apply(275, 120, 120, 35);
+  apply(337, 121, 167, 49);
   lcStatus.textContent = '⚠ Cached – live APIs unreachable';
   lcStatus.style.color = '#a09cc0';
 }
