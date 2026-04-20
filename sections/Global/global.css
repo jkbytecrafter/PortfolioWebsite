@@ -9,22 +9,22 @@
   /* New palette: Indigo, Cyan, Rose */
   --dp: #FFFFFF;
   --violet: #6366F1;
-  --blue-mid: #06B6D4;
-  --lime: #EC4899;
+  --blue-mid: #0891B2;      /* darkened from #06B6D4 for better contrast on light bg */
+  --lime: #B5179E;          /* darkened from #EC4899 for better contrast on light bg */
 
   /* Semantic aliases */
   --coral: #6366F1;
-  --cyan: #06B6D4;
-  --purple: #EC4899;
-  --yellow: #F59E0B;
-  --blue: #06B6D4;
-  --blue-light: #0EA5E9;
+  --cyan: #0891B2;
+  --purple: #B5179E;
+  --yellow: #B45309;        /* darkened from #F59E0B for better contrast on light bg */
+  --blue: #0891B2;
+  --blue-light: #0284C7;
   --cream: #FFFFFF;
   --taupe: #94A3B8;
 
   --text: #020617;
   --text-muted: #334155;
-  --text-dim: #64748B;
+  --text-dim: #475569;      /* slightly darkened for legibility */
 
   --font: 'Outfit', sans-serif;
   --mono: 'JetBrains Mono', monospace;
