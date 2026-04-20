@@ -72,6 +72,10 @@
   background: var(--blue-mid);
 }
 
+.proj-glow-3 {
+  background: var(--lime);
+}
+
 .proj-icon-wrap {
   width: 56px;
   height: 56px;
