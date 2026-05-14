@@ -80,6 +80,10 @@
   background: var(--coral);
 }
 
+.proj-glow-5 {
+  background: var(--violet);
+}
+
 .proj-icon-wrap {
   width: 56px;
   height: 56px;
