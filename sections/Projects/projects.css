@@ -76,6 +76,10 @@
   background: var(--lime);
 }
 
+.proj-glow-4 {
+  background: var(--coral);
+}
+
 .proj-icon-wrap {
   width: 56px;
   height: 56px;
