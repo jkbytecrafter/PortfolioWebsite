@@ -7,10 +7,9 @@
   z-index: 1000;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 0 5%;
   height: 64px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(250, 250, 250, 0.75);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
@@ -21,61 +20,40 @@
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
 }
 
-.nav-logo {
-  font-size: 1.5rem;
-  font-weight: 900;
-  background: linear-gradient(135deg, var(--violet), var(--lime));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.nav-links {
+/* Brand: avatar circle + name */
+.nav-brand {
   display: flex;
-  gap: 2rem;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
 }
 
-.nav-link {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  position: relative;
-  transition: color var(--transition);
+.nav-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--violet), var(--blue-mid));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+  overflow: hidden;
 }
 
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--lime);
-  border-radius: 2px;
-  transition: width var(--transition);
-}
-
-.nav-link:hover,
-.nav-link.active {
-  color: var(--text);
-}
-
-.nav-link:hover::after,
-.nav-link.active::after {
+.nav-avatar img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
-#hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-}
-
-#hamburger span {
-  width: 24px;
-  height: 2px;
-  background: var(--text);
-  display: block;
-  border-radius: 2px;
-  transition: var(--transition);
+.nav-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
 }

@@ -1,12 +1,11 @@
 /* ===== HERO ===== */
 #hero {
   position: relative;
-  height: 100vh;
-  min-height: 600px;
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
   overflow: hidden;
+  padding-top: 64px; /* offset for fixed navbar */
 }
 
 #hero-canvas {
@@ -18,94 +17,171 @@
   pointer-events: none;
 }
 
+/* ── Two-column wrapper ─────────────────────────────────── */
 .hero-content {
   position: relative;
   z-index: 1;
-  text-align: center;
-  padding: 0 5%;
-  animation: fadeUp 1s ease both;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 5%;
+  animation: fadeUp 0.9s ease both;
 }
 
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(36px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
+/* ── LEFT COLUMN ─────────────────────────────────────────── */
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* "HELLO, I AM" */
 .hero-greeting {
-  font-size: 1.1rem;
-  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  text-transform: uppercase;
   font-family: var(--mono);
-  margin-bottom: 0.5rem;
-  letter-spacing: 0.08em;
-  text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
 }
 
+/* Big name */
 .hero-name {
-  font-size: clamp(3rem, 10vw, 6.5rem);
+  font-size: clamp(2.6rem, 7vw, 5.2rem);
   font-weight: 900;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
   line-height: 1;
   color: var(--text);
-  text-shadow: 0 0 24px rgba(255,255,255,0.9), 0 0 10px rgba(255,255,255,1);
-  margin-bottom: 1rem;
+  margin: 0;
 }
 
-.typewriter-wrap {
-  font-size: clamp(1.1rem, 3vw, 1.5rem);
-  color: var(--text-muted);
-  font-family: var(--mono);
-  margin-bottom: 1rem;
-  min-height: 2rem;
-}
-
-#typewriter {
-  color: var(--violet);
-  font-weight: 800;
-}
-
-.cursor-blink {
-  animation: blink 1s step-end infinite;
-  color: var(--violet);
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
-
-.hero-tagline {
-  color: var(--text);
-  font-size: 1rem;
+/* Role line */
+.hero-roles {
+  font-size: 0.78rem;
   font-weight: 700;
-  text-shadow: 0 0 12px rgba(255, 255, 255, 0.9), 0 0 4px rgba(255, 255, 255, 1);
-  margin-bottom: 2rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  line-height: 1.6;
 }
 
+/* Bio paragraph */
+.hero-bio {
+  font-size: 0.97rem;
+  line-height: 1.7;
+  color: var(--text-dim);
+  max-width: 480px;
+  margin-top: 0.25rem;
+}
+
+/* ── STATS ROW ──────────────────────────────────────────── */
+.hero-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.hero-stat-num {
+  font-size: clamp(1.6rem, 4vw, 2rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  line-height: 1;
+}
+
+.hero-stat-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* Divider between stats */
+.hero-stat + .hero-stat {
+  padding-left: 2rem;
+  border-left: 1px solid var(--border);
+}
+
+/* ── BUTTONS ─────────────────────────────────────────────── */
 .hero-buttons {
   display: flex;
-  gap: 1rem;
-  justify-content: center;
+  gap: 0.9rem;
   flex-wrap: wrap;
-  margin-bottom: 2.5rem;
+  margin-top: 0.5rem;
 }
 
+/* Filled dark button — "Let's collaborate" */
+.btn-hero-primary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.7rem 1.6rem;
+  border-radius: 50px;
+  font-family: var(--font);
+  font-size: 0.92rem;
+  font-weight: 700;
+  background: var(--text);          /* very dark, almost black */
+  color: var(--bg);
+  border: 2px solid var(--text);
+  transition: var(--transition);
+  letter-spacing: 0.01em;
+}
+
+.btn-hero-primary:hover {
+  background: var(--violet);
+  border-color: var(--violet);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(99, 102, 241, 0.35);
+}
+
+/* Outline ghost button — "Download CV" */
+.btn-hero-outline {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.7rem 1.6rem;
+  border-radius: 50px;
+  font-family: var(--font);
+  font-size: 0.92rem;
+  font-weight: 600;
+  background: transparent;
+  color: var(--text);
+  border: 2px solid var(--border);
+  transition: var(--transition);
+  letter-spacing: 0.01em;
+}
+
+.btn-hero-outline:hover {
+  border-color: var(--text);
+  transform: translateY(-2px);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* ── SOCIALS ─────────────────────────────────────────────── */
 .hero-socials {
   display: flex;
-  gap: 1.2rem;
-  justify-content: center;
+  gap: 0.9rem;
+  margin-top: 0.25rem;
 }
 
 .hero-socials a {
-  width: 42px;
-  height: 42px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   border: 1px solid var(--border);
   display: flex;
@@ -116,17 +192,90 @@
 }
 
 .hero-socials a svg {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
 }
 
 .hero-socials a:hover {
   border-color: var(--violet);
   color: var(--violet);
   transform: translateY(-3px);
-  box-shadow: 0 0 18px #6366F14D;
+  box-shadow: 0 0 16px rgba(99, 102, 241, 0.3);
+  background: rgba(99, 102, 241, 0.06);
 }
 
+/* ── RIGHT COLUMN: Photo ─────────────────────────────────── */
+.hero-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-photo-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Glow ring behind the photo */
+.hero-photo-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.22) 0%, rgba(8, 145, 178, 0.14) 50%, transparent 80%);
+  z-index: 0;
+  animation: photoPulse 4s ease-in-out infinite;
+}
+
+@keyframes photoPulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.04); }
+}
+
+/* The photo itself */
+.hero-photo-placeholder {
+  position: relative;
+  z-index: 1;
+  width: clamp(240px, 30vw, 380px);
+  height: clamp(280px, 36vw, 440px);
+  border-radius: 48% 52% 44% 56% / 46% 40% 60% 54%; /* organic blob */
+  background: linear-gradient(145deg, rgba(99,102,241,0.18), rgba(8,145,178,0.14));
+  border: 2px solid rgba(99, 102, 241, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  backdrop-filter: blur(4px);
+  animation: blobMorph 8s ease-in-out infinite alternate;
+}
+
+@keyframes blobMorph {
+  0%   { border-radius: 48% 52% 44% 56% / 46% 40% 60% 54%; }
+  33%  { border-radius: 56% 44% 52% 48% / 54% 58% 42% 46%; }
+  66%  { border-radius: 44% 56% 48% 52% / 58% 44% 56% 42%; }
+  100% { border-radius: 52% 48% 56% 44% / 42% 56% 44% 58%; }
+}
+
+.hero-photo-placeholder span {
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--violet);
+  opacity: 0.6;
+  letter-spacing: -0.04em;
+  user-select: none;
+}
+
+/* When an actual <img> is placed inside */
+.hero-photo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+/* ── SCROLL HINT ─────────────────────────────────────────── */
 .hero-scroll-hint {
   position: absolute;
   bottom: 2rem;
@@ -137,27 +286,64 @@
   align-items: center;
   gap: 8px;
   color: var(--text-dim);
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   z-index: 1;
 }
 
 .scroll-line {
   width: 1px;
-  height: 40px;
+  height: 36px;
   background: linear-gradient(to bottom, var(--text-dim), transparent);
   animation: scrollPulse 2s ease infinite;
 }
 
 @keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; }
+  50%       { opacity: 1;   }
+}
 
-  0%,
-  100% {
-    opacity: 0.3;
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 3rem 5%;
+    gap: 2.5rem;
   }
 
-  50% {
-    opacity: 1;
+  .hero-right {
+    order: -1; /* photo first on mobile */
+  }
+
+  .hero-photo-placeholder {
+    width: 200px;
+    height: 230px;
+  }
+
+  .hero-roles {
+    font-size: 0.7rem;
+  }
+
+  .hero-stats {
+    justify-content: center;
+    gap: 1.2rem;
+  }
+
+  .hero-stat + .hero-stat {
+    padding-left: 1.2rem;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-socials {
+    justify-content: center;
+  }
+
+  .hero-bio {
+    max-width: 100%;
   }
 }

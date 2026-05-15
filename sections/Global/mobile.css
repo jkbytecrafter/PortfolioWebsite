@@ -1,29 +1,5 @@
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
-  .nav-links {
-    position: fixed;
-    top: 64px;
-    left: 0;
-    right: 0;
-    background: rgba(26, 21, 48, 0.97);
-    backdrop-filter: blur(20px);
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 2rem;
-    display: none;
-    z-index: 999;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .nav-links.open {
-    display: flex;
-  }
-
-  #hamburger {
-    display: flex;
-  }
-
   .about-grid {
     grid-template-columns: 1fr;
     text-align: center;
