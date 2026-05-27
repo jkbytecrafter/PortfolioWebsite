@@ -84,6 +84,10 @@
   background: var(--violet);
 }
 
+.proj-glow-6 {
+  background: #F59E0B;
+}
+
 .proj-icon-wrap {
   width: 56px;
   height: 56px;
