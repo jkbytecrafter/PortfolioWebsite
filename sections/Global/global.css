@@ -87,7 +87,7 @@ button {
 #cursor-dot {
   width: 7px;
   height: 7px;
-  background: #111;
+  background: #000;
   border-radius: 50%;
   position: fixed;
   top: 0;
@@ -95,7 +95,6 @@ button {
   pointer-events: none;
   z-index: 99999;
   transform: translate(-200px, -200px);
-  mix-blend-mode: difference;         /* always visible on any bg */
   will-change: transform;
 }
 
@@ -124,6 +123,7 @@ body.cursor-hover #cursor-ring {
   border: 1px solid rgba(99, 102, 241, 0.35);
   filter: blur(0px);
 }
+
 
 /* ===== SCROLLBAR ===== */
 ::-webkit-scrollbar {
