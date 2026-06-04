@@ -32,6 +32,45 @@
 
 <body>
 
+  <!-- ===== CV MODAL ===== -->
+  <div id="cv-modal" class="cv-modal-overlay" role="dialog" aria-modal="true" aria-label="CV Viewer" onclick="handleModalOverlayClick(event)">
+    <div class="cv-modal-box">
+      <div class="cv-modal-topbar">
+        <div class="cv-modal-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Jatin Kumar — Curriculum Vitae
+        </div>
+        <div class="cv-modal-actions">
+          <a href="https://drive.google.com/file/d/1t93gNpe7CXiF9-NR0VuchIcKDFf0pQ0M/view" target="_blank" rel="noopener" class="cv-action-btn cv-open-btn" title="Open in new tab">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Open
+          </a>
+          <a href="https://drive.google.com/uc?export=download&id=1t93gNpe7CXiF9-NR0VuchIcKDFf0pQ0M" target="_blank" rel="noopener" class="cv-action-btn cv-download-btn" title="Download PDF">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download
+          </a>
+          <button class="cv-action-btn cv-close-btn" onclick="closeCVModal()" title="Close" aria-label="Close CV viewer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="cv-modal-frame-wrap">
+        <iframe
+          id="cv-iframe"
+          src=""
+          class="cv-modal-iframe"
+          title="Jatin Kumar CV"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+        <div class="cv-modal-loading" id="cv-loading">
+          <div class="cv-spinner"></div>
+          <span>Loading CV…</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ===== CURSOR ===== -->
   <div id="cursor-dot"></div>
   <div id="cursor-ring"></div>
@@ -75,7 +114,14 @@
         <!-- BUTTONS -->
         <div class="hero-buttons">
           <a href="#contact" class="btn btn-hero-primary">Let's collaborate</a>
-          <a href="https://drive.google.com/uc?export=download&id=1t93gNpe7CXiF9-NR0VuchIcKDFf0pQ0M" class="btn btn-hero-outline" target="_blank" rel="noopener">Download CV</a>
+          <button class="btn btn-hero-outline" id="view-cv-btn" onclick="openCVModal()">
+            <svg style="width:15px;height:15px;margin-right:6px;flex-shrink:0;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            View CV
+          </button>
+          <a href="https://drive.google.com/uc?export=download&id=1t93gNpe7CXiF9-NR0VuchIcKDFf0pQ0M" class="btn btn-hero-download" target="_blank" rel="noopener">
+            <svg style="width:15px;height:15px;margin-right:6px;flex-shrink:0;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download CV
+          </a>
         </div>
 
         <!-- SOCIALS -->
@@ -1031,6 +1077,42 @@
   <script src="sections/Skills/skills.js"></script>
   <script src="sections/Contact/contact.js"></script>
   <script src="sections/Global/footer.js"></script>
+
+  <!-- ===== CV MODAL SCRIPT ===== -->
+  <script>
+    const CV_PREVIEW_URL = 'https://drive.google.com/file/d/1t93gNpe7CXiF9-NR0VuchIcKDFf0pQ0M/preview';
+    const cvModal   = document.getElementById('cv-modal');
+    const cvIframe  = document.getElementById('cv-iframe');
+    const cvLoading = document.getElementById('cv-loading');
+
+    function openCVModal() {
+      cvModal.classList.add('cv-modal-open');
+      document.body.style.overflow = 'hidden';
+      // Load iframe lazily only when opened
+      if (!cvIframe.src || cvIframe.src === window.location.href) {
+        cvLoading.style.display = 'flex';
+        cvIframe.src = CV_PREVIEW_URL;
+        cvIframe.onload = () => { cvLoading.style.display = 'none'; };
+      }
+      // Trap focus inside modal
+      setTimeout(() => document.querySelector('.cv-close-btn')?.focus(), 80);
+    }
+
+    function closeCVModal() {
+      cvModal.classList.remove('cv-modal-open');
+      document.body.style.overflow = '';
+    }
+
+    function handleModalOverlayClick(e) {
+      if (e.target === cvModal) closeCVModal();
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && cvModal.classList.contains('cv-modal-open')) {
+        closeCVModal();
+      }
+    });
+  </script>
 </body>
 
 </html>
