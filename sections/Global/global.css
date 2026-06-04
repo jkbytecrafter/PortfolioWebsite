@@ -82,38 +82,47 @@ button {
 }
 
 /* ===== CUSTOM CURSOR ===== */
+
+/* Primary dot — snaps instantly to mouse */
 #cursor-dot {
-  width: 8px;
-  height: 8px;
-  background: var(--lime);
+  width: 7px;
+  height: 7px;
+  background: #111;
   border-radius: 50%;
   position: fixed;
   top: 0;
   left: 0;
   pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.05s linear;
+  z-index: 99999;
+  transform: translate(-200px, -200px);
+  mix-blend-mode: difference;         /* always visible on any bg */
+  will-change: transform;
 }
 
+/* Trailing dot — soft, slightly larger, follows behind */
 #cursor-ring {
-  width: 36px;
-  height: 36px;
-  border: 2px solid rgba(91, 35, 255, 0.5);
+  width: 5px;
+  height: 5px;
+  background: rgba(99, 102, 241, 0.55);
   border-radius: 50%;
   position: fixed;
   top: 0;
   left: 0;
   pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: transform 0.15s ease, width 0.2s, height 0.2s, border-color 0.2s;
+  z-index: 99998;
+  transform: translate(-200px, -200px);
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+  will-change: transform;
+  filter: blur(0.5px);
 }
 
+/* On hover: trailing dot expands into a soft halo */
 body.cursor-hover #cursor-ring {
-  width: 52px;
-  height: 52px;
-  border-color: var(--lime);
+  width: 32px;
+  height: 32px;
+  background: rgba(99, 102, 241, 0.10);
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  filter: blur(0px);
 }
 
 /* ===== SCROLLBAR ===== */

@@ -42,6 +42,13 @@
   }
 }
 
+@media (max-width: 400px) {
+  .hero-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
 @keyframes pulse-glow {
 
   0%,

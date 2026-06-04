@@ -118,11 +118,12 @@
   border-left: 1px solid var(--border);
 }
 
-/* ── BUTTONS ─────────────────────────────────────────────── */
+/* ── BUTTONS ──────────────────────────────────────────── */
 .hero-buttons {
   display: flex;
-  gap: 0.9rem;
-  flex-wrap: wrap;
+  gap: 0.6rem;
+  flex-wrap: nowrap;   /* keep all three on one line */
+  align-items: center;
   margin-top: 0.5rem;
 }
 
@@ -130,16 +131,17 @@
 .btn-hero-primary {
   display: inline-flex;
   align-items: center;
-  padding: 0.7rem 1.6rem;
+  padding: 0.6rem 1.25rem;
   border-radius: 50px;
   font-family: var(--font);
-  font-size: 0.92rem;
+  font-size: 0.86rem;
   font-weight: 700;
   background: var(--text);          /* very dark, almost black */
   color: var(--bg);
   border: 2px solid var(--text);
   transition: var(--transition);
   letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 
 .btn-hero-primary:hover {
@@ -150,20 +152,21 @@
   box-shadow: 0 8px 28px rgba(99, 102, 241, 0.35);
 }
 
-/* Outline ghost button — "Download CV" */
+/* Outline ghost button — "View CV" */
 .btn-hero-outline {
   display: inline-flex;
   align-items: center;
-  padding: 0.7rem 1.6rem;
+  padding: 0.6rem 1.25rem;
   border-radius: 50px;
   font-family: var(--font);
-  font-size: 0.92rem;
+  font-size: 0.86rem;
   font-weight: 600;
   background: transparent;
   color: var(--text);
   border: 2px solid var(--border);
   transition: var(--transition);
   letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 
 .btn-hero-outline:hover {
@@ -176,10 +179,10 @@
 .btn-hero-download {
   display: inline-flex;
   align-items: center;
-  padding: 0.7rem 1.6rem;
+  padding: 0.6rem 1.25rem;
   border-radius: 50px;
   font-family: var(--font);
-  font-size: 0.92rem;
+  font-size: 0.86rem;
   font-weight: 700;
   background: linear-gradient(135deg, var(--violet), var(--blue-mid));
   color: #fff;
@@ -187,6 +190,7 @@
   transition: var(--transition);
   letter-spacing: 0.01em;
   box-shadow: 0 4px 18px rgba(99, 102, 241, 0.3);
+  white-space: nowrap;
 }
 
 .btn-hero-download:hover {
