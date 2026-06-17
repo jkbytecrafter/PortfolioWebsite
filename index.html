@@ -99,7 +99,7 @@
         <!-- STATS -->
         <div class="hero-stats">
           <div class="hero-stat">
-            <span class="hero-stat-num">7+</span>
+            <span class="hero-stat-num">5+</span>
             <span class="hero-stat-label">PROJECTS</span>
           </div>
           <div class="hero-stat">
@@ -217,68 +217,159 @@
   <!-- ===== SKILLS ===== -->
   <section id="skills" class="section section-alt">
     <div class="container">
-      <h2 class="section-title">Skills &amp; <span class="highlight">Stack</span></h2>
-      <div class="skills-grid">
-        <div class="skill-category">
-          <h3 class="skill-cat-title">
-            <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="16 18 22 12 16 6" />
-              <polyline points="8 6 2 12 8 18" />
-            </svg>
-            Languages
-          </h3>
-          <div class="skill-tags">
-            <span class="tag" data-color="coral">Java</span>
-            <span class="tag" data-color="cyan">Python</span>
-            <span class="tag" data-color="purple">C</span>
-            <span class="tag" data-color="yellow">SQL</span>
-          </div>
+
+      <!-- Header row: title + dropdown -->
+      <div class="sk-carousel-header">
+        <div>
+          <h2 class="section-title" style="margin-bottom:0">Skills &amp; <span class="highlight">Stack</span></h2>
+          <p class="section-sub" style="margin-top:0.5rem;margin-bottom:0">Technologies I build with</p>
         </div>
-        <div class="skill-category">
-          <h3 class="skill-cat-title">
-            <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10" />
-              <line x1="2" y1="12" x2="22" y2="12" />
-              <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+        <div class="sk-dropdown-wrap">
+          <button class="sk-dropdown-btn" id="sk-dropdown-btn" aria-label="Browse all categories" aria-haspopup="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/>
+              <line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/>
+              <line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
             </svg>
-            Web Technologies
-          </h3>
-          <div class="skill-tags">
-            <span class="tag" data-color="coral">HTML</span>
-            <span class="tag" data-color="cyan">CSS</span>
-            <span class="tag" data-color="yellow">JavaScript</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3 class="skill-cat-title">
-            <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
-              <polyline points="14 2 14 8 20 8" />
+            All Categories
+            <svg class="sk-dd-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9"/>
             </svg>
-            Tools & Platforms
-          </h3>
-          <div class="skill-tags">
-            <span class="tag" data-color="purple">Git</span>
-            <span class="tag" data-color="coral">GitHub</span>
-            <span class="tag" data-color="cyan">MySQL</span>
-            <span class="tag" data-color="yellow">Jira</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3 class="skill-cat-title">
-            <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-            </svg>
-            Core Competencies
-          </h3>
-          <div class="skill-tags">
-            <span class="tag" data-color="coral">Problem Solving</span>
-            <span class="tag" data-color="cyan">Logical Thinking</span>
-            <span class="tag" data-color="purple">Team Leadership</span>
-            <span class="tag" data-color="yellow">Communication</span>
+          </button>
+          <div class="sk-dropdown-menu" id="sk-dropdown-menu" role="menu">
+            <a href="#" data-sk-index="0" role="menuitem"><span class="sk-dd-num">01</span>Languages</a>
+            <a href="#" data-sk-index="1" role="menuitem"><span class="sk-dd-num">02</span>Web Technologies</a>
+            <a href="#" data-sk-index="2" role="menuitem"><span class="sk-dd-num">03</span>AI / ML</a>
+            <a href="#" data-sk-index="3" role="menuitem"><span class="sk-dd-num">04</span>DevOps &amp; Tools</a>
+            <a href="#" data-sk-index="4" role="menuitem"><span class="sk-dd-num">05</span>Core Competencies</a>
           </div>
         </div>
       </div>
+
+      <!-- 3D Horizontal Carousel -->
+      <div class="sk-carousel-track-wrap">
+        <div class="sk-carousel-track" id="sk-track">
+
+          <!-- Card 1: Languages -->
+          <div class="skill-category">
+            <h3 class="skill-cat-title">
+              <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+              </svg>
+              Languages
+            </h3>
+            <div class="skill-tags">
+              <span class="tag" data-color="cyan">Python</span>
+              <span class="tag" data-color="coral">Java</span>
+              <span class="tag" data-color="purple">C</span>
+              <span class="tag" data-color="yellow">SQL</span>
+              <span class="tag" data-color="yellow">JavaScript</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Web Technologies -->
+          <div class="skill-category">
+            <h3 class="skill-cat-title">
+              <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+              </svg>
+              Web Technologies
+            </h3>
+            <div class="skill-tags">
+              <span class="tag" data-color="coral">HTML5</span>
+              <span class="tag" data-color="cyan">CSS3</span>
+              <span class="tag" data-color="coral">React</span>
+              <span class="tag" data-color="purple">Flask</span>
+              <span class="tag" data-color="cyan">Node.js</span>
+              <span class="tag" data-color="yellow">FastAPI</span>
+              <span class="tag" data-color="purple">Streamlit</span>
+            </div>
+          </div>
+
+          <!-- Card 3: AI / ML -->
+          <div class="skill-category">
+            <h3 class="skill-cat-title">
+              <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2a10 10 0 110 20A10 10 0 0112 2z"/>
+                <path d="M8 12h.01M16 12h.01M12 8v.01M12 16v.01" stroke-linecap="round" stroke-width="2.5"/>
+              </svg>
+              AI / ML
+            </h3>
+            <div class="skill-tags">
+              <span class="tag" data-color="coral">TensorFlow</span>
+              <span class="tag" data-color="cyan">PyTorch</span>
+              <span class="tag" data-color="purple">Scikit-learn</span>
+              <span class="tag" data-color="yellow">OpenCV</span>
+              <span class="tag" data-color="coral">Pandas</span>
+              <span class="tag" data-color="cyan">NumPy</span>
+              <span class="tag" data-color="purple">LangChain</span>
+              <span class="tag" data-color="yellow">FAISS</span>
+            </div>
+          </div>
+
+          <!-- Card 4: DevOps & Tools -->
+          <div class="skill-category">
+            <h3 class="skill-cat-title">
+              <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+              </svg>
+              DevOps &amp; Tools
+            </h3>
+            <div class="skill-tags">
+              <span class="tag" data-color="cyan">Docker</span>
+              <span class="tag" data-color="coral">Kubernetes</span>
+              <span class="tag" data-color="purple">Git</span>
+              <span class="tag" data-color="yellow">GitHub</span>
+              <span class="tag" data-color="cyan">MySQL</span>
+              <span class="tag" data-color="coral">PostgreSQL</span>
+              <span class="tag" data-color="purple">Redis</span>
+              <span class="tag" data-color="yellow">Jira</span>
+            </div>
+          </div>
+
+          <!-- Card 5: Core Competencies -->
+          <div class="skill-category">
+            <h3 class="skill-cat-title">
+              <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+              Core Competencies
+            </h3>
+            <div class="skill-tags">
+              <span class="tag" data-color="coral">Problem Solving</span>
+              <span class="tag" data-color="cyan">Logical Thinking</span>
+              <span class="tag" data-color="purple">Team Leadership</span>
+              <span class="tag" data-color="yellow">Communication</span>
+              <span class="tag" data-color="coral">DSA</span>
+              <span class="tag" data-color="cyan">System Design</span>
+            </div>
+          </div>
+
+        </div><!-- /sk-track -->
+      </div><!-- /sk-carousel-track-wrap -->
+
+      <!-- Scroll controls -->
+      <div class="sk-scroll-controls">
+        <button class="sk-arrow-btn" id="sk-prev" aria-label="Previous category">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
+        <div class="sk-carousel-dots" id="sk-dots">
+          <div class="sk-dot active"></div>
+          <div class="sk-dot"></div>
+          <div class="sk-dot"></div>
+          <div class="sk-dot"></div>
+          <div class="sk-dot"></div>
+        </div>
+        <button class="sk-arrow-btn" id="sk-next" aria-label="Next category">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </button>
+      </div>
+
     </div>
   </section>
 
@@ -1219,6 +1310,7 @@
   <script src="sections/Projects/projects.js"></script>
   <script src="sections/Competitive/competitive.js"></script>
   <script src="sections/Skills/skills.js"></script>
+  <script src="sections/Skills/skills-carousel.js"></script>
   <script src="sections/Contact/contact.js"></script>
   <script src="sections/Global/footer.js"></script>
 
