@@ -240,3 +240,65 @@ const cpObs = new IntersectionObserver(entries => {
   }
 }, { threshold: 0.2 });
 cpObs.observe(cpSection);
+
+// ── CODOLIO — live scrape via allorigins CORS proxy ───────────
+async function fetchCodolio() {
+  const cdSolved = document.getElementById('cd-solved');
+  const cdDays   = document.getElementById('cd-days');
+  const cdStatus = document.getElementById('cd-status');
+
+  function apply(solved, days) {
+    animateCounter(cdSolved, solved);
+    animateCounter(cdDays,   days);
+    if (cdStatus) {
+      cdStatus.textContent  = '✓ Live – updated just now';
+      cdStatus.style.color  = '#B5179E';
+    }
+    document.getElementById('codolio-card')?.classList.add('data-loaded');
+  }
+
+  try {
+    // Fetch the Codolio profile page via a CORS proxy and scrape the numbers
+    const proxyUrl = 'https://api.allorigins.win/raw?url=' +
+      encodeURIComponent('https://codolio.com/profile/jkbytecrafter');
+    const res = await fetch(proxyUrl, { signal: AbortSignal.timeout(10000) });
+    if (!res.ok) throw new Error('proxy failed');
+    const html = await res.text();
+
+    // Parse the HTML for the two stat numbers
+    // Codolio renders: Questions Solved / Active Days as large numbers
+    const solvedMatch = html.match(/Questions\s*Solved[\s\S]{0,200}?(\d{2,4})/i);
+    const daysMatch   = html.match(/Active\s*Days[\s\S]{0,200}?(\d{2,4})/i);
+
+    const solved = solvedMatch ? parseInt(solvedMatch[1], 10) : null;
+    const days   = daysMatch   ? parseInt(daysMatch[1],   10) : null;
+
+    if (solved && days) {
+      apply(solved, days);
+      return;
+    }
+    throw new Error('parse failed');
+  } catch (_) {
+    // Fallback to last-known values from profile screenshot
+    apply(409, 247);
+    if (cdStatus) {
+      cdStatus.textContent = '⚠ Cached – last known values';
+      cdStatus.style.color = '#a09cc0';
+    }
+  }
+}
+
+// Trigger Codolio fetch when section scrolls into view
+const codolioSection = document.getElementById('codolio');
+if (codolioSection) {
+  let codolioFetched = false;
+  const codolioObs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting && !codolioFetched) {
+      codolioFetched = true;
+      fetchCodolio();
+      codolioObs.disconnect();
+    }
+  }, { threshold: 0.2 });
+  codolioObs.observe(codolioSection);
+}
+

@@ -62,15 +62,10 @@
   margin-bottom: 2px;
 }
 
-.codolio-handle {
+.codolio-handle-static {
   font-size: 0.8rem;
   color: var(--blue-mid);
   font-family: var(--mono);
-  transition: var(--transition);
-}
-
-.codolio-handle:hover {
-  color: var(--lime);
 }
 
 /* ── Stats grid ── */
@@ -105,25 +100,6 @@
   font-family: var(--mono);
   color: var(--text);
   line-height: 1;
-}
-
-/* ── Tags ── */
-.codolio-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.codolio-tag {
-  font-size: 0.72rem;
-  font-weight: 700;
-  font-family: var(--mono);
-  padding: 0.25rem 0.65rem;
-  border-radius: 6px;
-  background: rgba(0,0,0,0.05);
-  border: 1px solid var(--border);
-  color: var(--text-muted);
 }
 
 /* ── Footer ── */
