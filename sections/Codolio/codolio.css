@@ -1,124 +1,156 @@
 /* ===== CODOLIO SECTION ===== */
-.codolio-section-wrap {
+.codolio-card-wrap {
   margin-top: 3rem;
-}
-
-.codolio-card-outer {
-  position: relative;
   display: flex;
   justify-content: center;
 }
 
-.codolio-glow-bg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 600px;
-  height: 300px;
-  background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.14) 0%, rgba(6, 182, 212, 0.08) 50%, transparent 75%);
-  pointer-events: none;
-  border-radius: 50%;
-  filter: blur(40px);
-}
-
-.codolio-iframe-container {
-  position: relative;
+.codolio-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
   width: 100%;
-  max-width: 420px;
-  border-radius: 24px;
+  max-width: 480px;
+  position: relative;
   overflow: hidden;
-  border: 1px solid var(--border);
-  box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.08),
-    0 20px 60px -10px rgba(99, 102, 241, 0.15),
-    0 0 0 1px rgba(99, 102, 241, 0.06);
-  transition: box-shadow 0.4s ease, transform 0.4s ease;
-  background: #111;
-}
-
-.codolio-iframe-container:hover {
-  box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 30px 80px -10px rgba(99, 102, 241, 0.22),
-    0 0 0 1px rgba(99, 102, 241, 0.1);
-  transform: translateY(-5px);
-}
-
-.codolio-iframe {
-  width: 100%;
-  height: 640px;
-  border: none;
-  display: block;
-  border-radius: 24px;
-}
-
-.codolio-badge-row {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1.8rem;
-  flex-wrap: wrap;
-}
-
-.codolio-badge {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1.1rem;
-  border-radius: 50px;
-  background: var(--surface-h);
-  border: 1px solid var(--border);
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--text-muted);
   transition: var(--transition);
 }
 
-.codolio-badge svg {
-  width: 14px;
-  height: 14px;
-  color: var(--lime);
-  flex-shrink: 0;
+.codolio-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 0%, rgba(181, 23, 158, 0.08), transparent 60%);
+  pointer-events: none;
 }
 
-.codolio-badge:hover {
+.codolio-card:hover {
   border-color: var(--lime);
-  color: var(--lime);
-  background: rgba(181, 23, 158, 0.06);
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(181, 23, 158, 0.12);
 }
 
-.codolio-view-btn {
-  display: inline-flex;
+/* ── Header ── */
+.codolio-card-header {
+  display: flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-top: 2rem;
-  padding: 0.7rem 1.8rem;
-  border-radius: 50px;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(6, 182, 212, 0.08));
-  border: 1px solid rgba(99, 102, 241, 0.3);
-  font-size: 0.88rem;
+  gap: 1rem;
+  margin-bottom: 1.8rem;
+}
+
+.codolio-logo-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.codolio-logo-wrap svg {
+  width: 28px;
+  height: 28px;
+}
+
+.codolio-platform {
+  font-size: 1.15rem;
   font-weight: 700;
-  color: var(--violet);
+  margin-bottom: 2px;
+}
+
+.codolio-handle {
+  font-size: 0.8rem;
+  color: var(--blue-mid);
+  font-family: var(--mono);
+  transition: var(--transition);
+}
+
+.codolio-handle:hover {
+  color: var(--lime);
+}
+
+/* ── Stats grid ── */
+.codolio-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.codolio-stat-box {
+  background: rgba(0,0,0,0.04);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+}
+
+.codolio-stat-label {
+  font-size: 0.75rem;
+  color: var(--lime);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.codolio-stat-val {
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: var(--mono);
+  color: var(--text);
+  line-height: 1;
+}
+
+/* ── Tags ── */
+.codolio-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.codolio-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: var(--mono);
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.05);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+/* ── Footer ── */
+.codolio-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.codolio-status-text {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  font-family: var(--mono);
+}
+
+.codolio-verify-btn {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--lime);
+  padding: 0.35rem 0.8rem;
+  border-radius: 50px;
+  border: 1px solid rgba(181, 23, 158, 0.3);
   transition: var(--transition);
   text-decoration: none;
 }
 
-.codolio-view-btn:hover {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(6, 182, 212, 0.14));
-  border-color: var(--violet);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.2);
-}
-
-.codolio-view-btn svg {
-  width: 15px;
-  height: 15px;
-}
-
-.codolio-footer-row {
-  display: flex;
-  justify-content: center;
-  margin-top: 0.5rem;
+.codolio-verify-btn:hover {
+  background: rgba(181, 23, 158, 0.08);
 }
