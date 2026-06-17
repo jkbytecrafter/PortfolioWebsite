@@ -1,3 +1,21 @@
+// ── HELPER FOR CLONES ─────────────────────────────────────────
+function syncTextAndColor(id, text, color) {
+  const el = document.getElementById(id);
+  if (el) {
+    if (text !== undefined) el.textContent = text;
+    if (color !== undefined) el.style.color = color;
+  }
+  document.querySelectorAll(`[data-clone-id="${id}"]`).forEach(c => {
+    if (text !== undefined) c.textContent = text;
+    if (color !== undefined) c.style.color = color;
+  });
+}
+function addClassToClones(id, className) {
+  const el = document.getElementById(id);
+  if (el) el.classList.add(className);
+  document.querySelectorAll(`[data-clone-id="${id}"]`).forEach(c => c.classList.add(className));
+}
+
 // ── LEETCODE API (multi-endpoint fallback) ────────────────
 async function fetchLeetCode() {
   const USERNAME = 'JKByteCrafter';
@@ -17,9 +35,8 @@ async function fetchLeetCode() {
     animateBar('lc-easy-bar', easy / mx);
     animateBar('lc-med-bar', medium / mx);
     animateBar('lc-hard-bar', hard / mx);
-    lcStatus.textContent = '✓ Live – updated just now';
-    lcStatus.style.color = '#E4FF30';
-    document.getElementById('lc-card')?.classList.add('data-loaded');
+    syncTextAndColor('lc-status', '✓ Live – updated just now', '#E4FF30');
+    addClassToClones('lc-card', 'data-loaded');
 
     // ── Sync Awards & Certifications timeline entry ──────────
     const awardSub = document.getElementById('award-lc-sub');
@@ -85,9 +102,8 @@ async function fetchLeetCode() {
   } catch (_) { }
 
   // Fallback: last-known cached values
-  apply(337, 121, 167, 49);
-  lcStatus.textContent = '⚠ Cached – live APIs unreachable';
-  lcStatus.style.color = '#a09cc0';
+  syncTextAndColor('lc-status', '⚠ Cached – live APIs unreachable', '#facc15');
+  apply(273, 110, 142, 21);
 }
 
 
@@ -120,7 +136,7 @@ async function fetchCodeforces() {
 
     animateCounter(cfRating, rating);
     animateCounter(cfMaxRating, maxRating);
-    cfRank.textContent = rank.charAt(0).toUpperCase() + rank.slice(1);
+    syncTextAndColor('cf-rank', rank.charAt(0).toUpperCase() + rank.slice(1));
 
     // Ring: CF rating scale 0–2000 at ~100%
     animateRingSVG('cf-ring', rating / 2000);
@@ -136,23 +152,21 @@ async function fetchCodeforces() {
         );
         animateCounter(cfSolved, solved.size);
       } else {
-        cfSolved.textContent = '–';
+        syncTextAndColor('cf-solved', '–');
       }
     }
 
-    cfStatus.textContent = '✓ Live – updated just now';
-    cfStatus.style.color = '#22c55e';
-    document.getElementById('cf-card').classList.add('data-loaded');
+    syncTextAndColor('cf-status', '✓ Live – updated just now', '#22c55e');
+    addClassToClones('cf-card', 'data-loaded');
 
   } catch (err) {
     // Fallback
     animateCounter(cfRating, 1138);
     animateCounter(cfMaxRating, 1138);
-    cfRank.textContent = 'Pupil';
+    syncTextAndColor('cf-rank', 'Pupil');
     animateRingSVG('cf-ring', 1138 / 2000);
-    cfSolved.textContent = '–';
-    cfStatus.textContent = '⚠ Cached – API unreachable';
-    cfStatus.style.color = '#fbbf24';
+    syncTextAndColor('cf-solved', '–');
+    syncTextAndColor('cf-status', '⚠ Cached – API unreachable', '#fbbf24');
   }
 }
 
@@ -259,9 +273,6 @@ function fetchCodolio() {
   if (cdSolved2) animateCounter(cdSolved2, SOLVED);
   animateRingSVG('cd-ring', SOLVED / 500);
 
-  if (cdStatus) {
-    cdStatus.textContent = '✓ Profile data · jkbytecrafter';
-    cdStatus.style.color = '#F97316';
-  }
-  document.getElementById('codolio-card')?.classList.add('data-loaded');
+  syncTextAndColor('cd-status', '✓ Profile data · jkbytecrafter', '#F97316');
+  addClassToClones('codolio-card', 'data-loaded');
 }

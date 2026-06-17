@@ -10,15 +10,30 @@
   const dropBtn   = document.getElementById('cp-dropdown-btn');
   const dropMenu  = document.getElementById('cp-dropdown-menu');
 
-  // ── CLONE cards at both ends ──────────────────────────────
+  // Strip all IDs from a clone so getElementById finds real cards only,
+  // but save them in data-clone-id so API updates can sync to clones.
+  function stripIds(el) {
+    if (el.id) {
+      el.dataset.cloneId = el.id;
+      el.removeAttribute('id');
+    }
+    el.querySelectorAll('[id]').forEach(child => {
+      child.dataset.cloneId = child.id;
+      child.removeAttribute('id');
+    });
+  }
+
+  // ── CLONE cards at both ends ────────────────────────────────
   realCards.forEach(card => {
     const clone = card.cloneNode(true);
+    stripIds(clone);
     clone.setAttribute('aria-hidden', 'true');
     clone.classList.add('carousel-clone');
     track.appendChild(clone);
   });
   realCards.slice().reverse().forEach(card => {
     const clone = card.cloneNode(true);
+    stripIds(clone);
     clone.setAttribute('aria-hidden', 'true');
     clone.classList.add('carousel-clone');
     track.prepend(clone);

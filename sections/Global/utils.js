@@ -104,12 +104,16 @@ revealEls.forEach(el => revealObs.observe(el));
 
 // ── COUNTER ANIMATION ─────────────────────────────────────
 function animateCounter(el, target, duration = 1400, suffix = '') {
+  if (!el) return;
+  const clones = el.id ? document.querySelectorAll(`[data-clone-id="${el.id}"]`) : [];
   let start = 0;
   const step = timestamp => {
     if (!start) start = timestamp;
     const progress = Math.min((timestamp - start) / duration, 1);
     const eased = 1 - Math.pow(1 - progress, 3);
-    el.textContent = Math.round(eased * target) + suffix;
+    const val = Math.round(eased * target) + suffix;
+    el.textContent = val;
+    clones.forEach(c => c.textContent = val);
     if (progress < 1) requestAnimationFrame(step);
   };
   requestAnimationFrame(step);
@@ -121,12 +125,21 @@ function animateRingSVG(id, percent) {
   const offset = circ * (1 - Math.min(percent, 1));
   const el = document.getElementById(id);
   if (el) {
-    setTimeout(() => { el.style.strokeDashoffset = offset; }, 300);
+    setTimeout(() => { 
+      el.style.strokeDashoffset = offset; 
+      document.querySelectorAll(`[data-clone-id="${id}"]`).forEach(c => c.style.strokeDashoffset = offset);
+    }, 300);
   }
 }
 
 // ── DIFF BARS ─────────────────────────────────────────────
 function animateBar(id, percent) {
   const el = document.getElementById(id);
-  if (el) setTimeout(() => { el.style.width = Math.min(percent * 100, 100) + '%'; }, 400);
+  if (el) {
+    setTimeout(() => { 
+      const w = Math.min(percent * 100, 100) + '%';
+      el.style.width = w; 
+      document.querySelectorAll(`[data-clone-id="${id}"]`).forEach(c => c.style.width = w);
+    }, 400);
+  }
 }
