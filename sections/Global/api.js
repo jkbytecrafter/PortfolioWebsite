@@ -242,61 +242,26 @@ const cpObs = new IntersectionObserver(entries => {
 }, { threshold: 0.2 });
 cpObs.observe(cpSection);
 
-// ── CODOLIO — live fetch via multiple strategies ──────────────
-async function fetchCodolio() {
+// ── CODOLIO ──────────────────────────────────────────────────
+// Codolio renders stats client-side with no public API.
+// We show accurate profile data and link to the profile to verify.
+function fetchCodolio() {
   const cdSolved  = document.getElementById('cd-solved');
   const cdDays    = document.getElementById('cd-days');
   const cdStatus  = document.getElementById('cd-status');
   const cdSolved2 = document.getElementById('cd-solved-2');
 
-  function apply(solved, days, live = true) {
-    animateCounter(cdSolved, solved);
-    animateCounter(cdDays,   days);
-    if (cdSolved2) animateCounter(cdSolved2, solved);
-    animateRingSVG('cd-ring', solved / 500);
-    if (cdStatus) {
-      cdStatus.textContent = live ? '✓ Live – updated just now' : '⚠ Cached – last known values';
-      cdStatus.style.color = live ? '#F97316' : '#a09cc0';
-    }
-    document.getElementById('codolio-card')?.classList.add('data-loaded');
+  const SOLVED = 409;
+  const DAYS   = 247;
+
+  animateCounter(cdSolved,  SOLVED);
+  animateCounter(cdDays,    DAYS);
+  if (cdSolved2) animateCounter(cdSolved2, SOLVED);
+  animateRingSVG('cd-ring', SOLVED / 500);
+
+  if (cdStatus) {
+    cdStatus.textContent = '✓ Profile data · jkbytecrafter';
+    cdStatus.style.color = '#F97316';
   }
-
-  // ── Strategy 1: Direct Codolio JSON API ──────────────────
-  try {
-    const r = await fetch(
-      'https://codolio.com/api/profile/jkbytecrafter',
-      { signal: AbortSignal.timeout(7000) }
-    );
-    if (r.ok) {
-      const d = await r.json();
-      const solved = d?.totalSolved ?? d?.questionsSolved ?? d?.solved ?? null;
-      const days   = d?.activeDays  ?? d?.active_days     ?? d?.days   ?? null;
-      if (solved && days) { apply(solved, days, true); return; }
-    }
-  } catch (_) {}
-
-  // ── Strategy 2: Extract __NEXT_DATA__ from the page HTML ──
-  // Next.js injects all SSR props as JSON into a <script id="__NEXT_DATA__"> tag
-  try {
-    const proxyUrl = 'https://api.allorigins.win/raw?url=' +
-      encodeURIComponent('https://codolio.com/profile/jkbytecrafter');
-    const res = await fetch(proxyUrl, { signal: AbortSignal.timeout(12000) });
-    if (!res.ok) throw new Error('proxy failed');
-    const html = await res.text();
-
-    // Pull out the __NEXT_DATA__ JSON blob
-    const ndMatch = html.match(/<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/i);
-    if (ndMatch) {
-      const str = ndMatch[1];
-      const solvedMatch = str.match(/"(?:totalSolved|questionsSolved|solved)"\s*:\s*(\d+)/);
-      const daysMatch   = str.match(/"(?:activeDays|active_days|days)"\s*:\s*(\d+)/);
-      const solved = solvedMatch ? parseInt(solvedMatch[1], 10) : null;
-      const days   = daysMatch   ? parseInt(daysMatch[1],   10) : null;
-      if (solved && days) { apply(solved, days, true); return; }
-    }
-    throw new Error('__NEXT_DATA__ parse failed');
-  } catch (_) {}
-
-  // ── Fallback: last-known values ───────────────────────────
-  apply(409, 247, false);
+  document.getElementById('codolio-card')?.classList.add('data-loaded');
 }
