@@ -683,117 +683,154 @@
   <!-- ===== COMPETITIVE PROGRAMMING ===== -->
   <section id="competitive" class="section section-alt">
     <div class="container">
-      <h2 class="section-title">Competitive <span class="highlight">Programming</span></h2>
-      <p class="section-sub">Stats update in real-time from the official APIs</p>
-      <div class="cp-grid">
 
-        <!-- LeetCode Card -->
-        <div class="cp-card" id="lc-card">
-          <div class="cp-card-header">
-            <div class="cp-logo lc-logo">
-              <svg viewBox="0 0 95 111" fill="none">
-                <path
-                  d="M68.8 89.6c2 2 2 5.2 0 7.2L58 107.6a5.1 5.1 0 01-7.2 0L29.2 86a5.1 5.1 0 010-7.2l11-11a5.1 5.1 0 017.3 0l7.5 7.5L68.8 89.6z"
-                  fill="#FFA116" />
-                <path d="M42 54.8L7.6 89.2a5.1 5.1 0 000 7.2l10.8 10.8a5.1 5.1 0 007.2 0L60 72.8" stroke="#B3B3B3"
-                  stroke-width="7" stroke-linecap="round" />
-                <path d="M65.2 39.6H27.6a5 5 0 000 10h37.6a5 5 0 000-10z" fill="#070706" />
-              </svg>
-            </div>
-            <div>
-              <h3 class="cp-platform">LeetCode</h3>
-              <a href="https://leetcode.com/u/jkbytecrafter/" target="_blank" rel="noopener"
-                class="cp-handle">@jkbytecrafter ↗</a>
-            </div>
-          </div>
-          <div class="cp-stats-main">
-            <div class="ring-wrap">
-              <svg class="progress-ring" viewBox="0 0 120 120">
-                <circle class="ring-bg" cx="60" cy="60" r="50" />
-                <circle class="ring-fill lc-ring" id="lc-ring" cx="60" cy="60" r="50" stroke-dasharray="314"
-                  stroke-dashoffset="314" />
-              </svg>
-              <div class="ring-center">
-                <span class="ring-num" id="lc-total">–</span>
-                <span class="ring-label">Solved</span>
-              </div>
-            </div>
-            <div class="cp-breakdown">
-              <div class="diff-row easy">
-                <span class="diff-label">Easy</span>
-                <span class="diff-bar-wrap"><span class="diff-bar" id="lc-easy-bar"></span></span>
-                <span class="diff-num" id="lc-easy">–</span>
-              </div>
-              <div class="diff-row medium">
-                <span class="diff-label">Medium</span>
-                <span class="diff-bar-wrap"><span class="diff-bar" id="lc-med-bar"></span></span>
-                <span class="diff-num" id="lc-med">–</span>
-              </div>
-              <div class="diff-row hard">
-                <span class="diff-label">Hard</span>
-                <span class="diff-bar-wrap"><span class="diff-bar" id="lc-hard-bar"></span></span>
-                <span class="diff-num" id="lc-hard">–</span>
-              </div>
-            </div>
-          </div>
-          <div class="cp-footer">
-            <span class="cp-status" id="lc-status">Fetching live data…</span>
-            <a href="https://leetcode.com/u/jkbytecrafter/" target="_blank" rel="noopener" class="cp-verify-btn">Verify
-              on LeetCode ↗</a>
+      <!-- Header row: title + dropdown -->
+      <div class="cp-carousel-header">
+        <div>
+          <h2 class="section-title" style="margin-bottom:0">Competitive <span class="highlight">Programming</span></h2>
+          <p class="section-sub" style="margin-top:0.5rem;margin-bottom:0">Stats update in real-time from the official APIs</p>
+        </div>
+        <div class="cp-dropdown-wrap">
+          <button class="cp-dropdown-btn" id="cp-dropdown-btn" aria-label="Browse all platforms" aria-haspopup="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/>
+              <line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/>
+              <line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
+            </svg>
+            All Platforms
+            <svg class="cp-dd-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="cp-dropdown-menu" id="cp-dropdown-menu" role="menu">
+            <a href="#" data-cp-index="0" role="menuitem"><span class="cp-dd-num">01</span>LeetCode</a>
+            <a href="#" data-cp-index="1" role="menuitem"><span class="cp-dd-num">02</span>Codeforces</a>
           </div>
         </div>
-
-        <!-- Codeforces Card -->
-        <div class="cp-card" id="cf-card">
-          <div class="cp-card-header">
-            <div class="cp-logo cf-logo">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <rect x="0" y="12" width="6" height="12" rx="1" fill="#1195F5" />
-                <rect x="9" y="6" width="6" height="18" rx="1" fill="#ED3434" />
-                <rect x="18" y="0" width="6" height="24" rx="1" fill="#1195F5" />
-              </svg>
-            </div>
-            <div>
-              <h3 class="cp-platform">Codeforces</h3>
-              <a href="https://codeforces.com/profile/jatinkumar15002" target="_blank" rel="noopener"
-                class="cp-handle">@jatinkumar15002 ↗</a>
-            </div>
-          </div>
-          <div class="cp-stats-main">
-            <div class="ring-wrap">
-              <svg class="progress-ring" viewBox="0 0 120 120">
-                <circle class="ring-bg" cx="60" cy="60" r="50" />
-                <circle class="ring-fill cf-ring" id="cf-ring" cx="60" cy="60" r="50" stroke-dasharray="314"
-                  stroke-dashoffset="314" />
-              </svg>
-              <div class="ring-center">
-                <span class="ring-num" id="cf-rating">–</span>
-                <span class="ring-label">Rating</span>
-              </div>
-            </div>
-            <div class="cp-breakdown">
-              <div class="cf-stat-row">
-                <span class="cf-stat-label">Rank</span>
-                <span class="cf-stat-val" id="cf-rank">–</span>
-              </div>
-              <div class="cf-stat-row">
-                <span class="cf-stat-label">Max Rating</span>
-                <span class="cf-stat-val" id="cf-max-rating">–</span>
-              </div>
-              <div class="cf-stat-row">
-                <span class="cf-stat-label">Problems Solved</span>
-                <span class="cf-stat-val" id="cf-solved">–</span>
-              </div>
-            </div>
-          </div>
-          <div class="cp-footer">
-            <span class="cp-status" id="cf-status">Fetching live data…</span>
-            <a href="https://codeforces.com/profile/jatinkumar15002" target="_blank" rel="noopener"
-              class="cp-verify-btn">Verify on CF ↗</a>
-          </div>
-        </div>
-
       </div>
+
+      <!-- 3D Horizontal Carousel -->
+      <div class="cp-carousel-track-wrap">
+        <div class="cp-carousel-track" id="cp-track">
+
+          <!-- LeetCode Card -->
+          <div class="cp-card" id="lc-card">
+            <div class="cp-card-header">
+              <div class="cp-logo lc-logo">
+                <svg viewBox="0 0 95 111" fill="none">
+                  <path d="M68.8 89.6c2 2 2 5.2 0 7.2L58 107.6a5.1 5.1 0 01-7.2 0L29.2 86a5.1 5.1 0 010-7.2l11-11a5.1 5.1 0 017.3 0l7.5 7.5L68.8 89.6z" fill="#FFA116" />
+                  <path d="M42 54.8L7.6 89.2a5.1 5.1 0 000 7.2l10.8 10.8a5.1 5.1 0 007.2 0L60 72.8" stroke="#B3B3B3" stroke-width="7" stroke-linecap="round" />
+                  <path d="M65.2 39.6H27.6a5 5 0 000 10h37.6a5 5 0 000-10z" fill="#070706" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="cp-platform">LeetCode</h3>
+                <a href="https://leetcode.com/u/jkbytecrafter/" target="_blank" rel="noopener" class="cp-handle">@jkbytecrafter ↗</a>
+              </div>
+            </div>
+            <div class="cp-stats-main">
+              <div class="ring-wrap">
+                <svg class="progress-ring" viewBox="0 0 120 120">
+                  <circle class="ring-bg" cx="60" cy="60" r="50" />
+                  <circle class="ring-fill lc-ring" id="lc-ring" cx="60" cy="60" r="50" stroke-dasharray="314" stroke-dashoffset="314" />
+                </svg>
+                <div class="ring-center">
+                  <span class="ring-num" id="lc-total">–</span>
+                  <span class="ring-label">Solved</span>
+                </div>
+              </div>
+              <div class="cp-breakdown">
+                <div class="diff-row easy">
+                  <span class="diff-label">Easy</span>
+                  <span class="diff-bar-wrap"><span class="diff-bar" id="lc-easy-bar"></span></span>
+                  <span class="diff-num" id="lc-easy">–</span>
+                </div>
+                <div class="diff-row medium">
+                  <span class="diff-label">Medium</span>
+                  <span class="diff-bar-wrap"><span class="diff-bar" id="lc-med-bar"></span></span>
+                  <span class="diff-num" id="lc-med">–</span>
+                </div>
+                <div class="diff-row hard">
+                  <span class="diff-label">Hard</span>
+                  <span class="diff-bar-wrap"><span class="diff-bar" id="lc-hard-bar"></span></span>
+                  <span class="diff-num" id="lc-hard">–</span>
+                </div>
+              </div>
+            </div>
+            <div class="cp-footer">
+              <span class="cp-status" id="lc-status">Fetching live data…</span>
+              <a href="https://leetcode.com/u/jkbytecrafter/" target="_blank" rel="noopener" class="cp-verify-btn">Verify on LeetCode ↗</a>
+            </div>
+          </div>
+
+          <!-- Codeforces Card -->
+          <div class="cp-card" id="cf-card">
+            <div class="cp-card-header">
+              <div class="cp-logo cf-logo">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <rect x="0" y="12" width="6" height="12" rx="1" fill="#1195F5" />
+                  <rect x="9" y="6" width="6" height="18" rx="1" fill="#ED3434" />
+                  <rect x="18" y="0" width="6" height="24" rx="1" fill="#1195F5" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="cp-platform">Codeforces</h3>
+                <a href="https://codeforces.com/profile/jatinkumar15002" target="_blank" rel="noopener" class="cp-handle">@jatinkumar15002 ↗</a>
+              </div>
+            </div>
+            <div class="cp-stats-main">
+              <div class="ring-wrap">
+                <svg class="progress-ring" viewBox="0 0 120 120">
+                  <circle class="ring-bg" cx="60" cy="60" r="50" />
+                  <circle class="ring-fill cf-ring" id="cf-ring" cx="60" cy="60" r="50" stroke-dasharray="314" stroke-dashoffset="314" />
+                </svg>
+                <div class="ring-center">
+                  <span class="ring-num" id="cf-rating">–</span>
+                  <span class="ring-label">Rating</span>
+                </div>
+              </div>
+              <div class="cp-breakdown">
+                <div class="cf-stat-row">
+                  <span class="cf-stat-label">Rank</span>
+                  <span class="cf-stat-val" id="cf-rank">–</span>
+                </div>
+                <div class="cf-stat-row">
+                  <span class="cf-stat-label">Max Rating</span>
+                  <span class="cf-stat-val" id="cf-max-rating">–</span>
+                </div>
+                <div class="cf-stat-row">
+                  <span class="cf-stat-label">Problems Solved</span>
+                  <span class="cf-stat-val" id="cf-solved">–</span>
+                </div>
+              </div>
+            </div>
+            <div class="cp-footer">
+              <span class="cp-status" id="cf-status">Fetching live data…</span>
+              <a href="https://codeforces.com/profile/jatinkumar15002" target="_blank" rel="noopener" class="cp-verify-btn">Verify on CF ↗</a>
+            </div>
+          </div>
+
+        </div><!-- /cp-track -->
+      </div><!-- /cp-carousel-track-wrap -->
+
+      <!-- Scroll controls -->
+      <div class="cp-scroll-controls">
+        <button class="cp-arrow-btn" id="cp-prev" aria-label="Previous platform">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
+        <div class="cp-carousel-dots" id="cp-dots">
+          <div class="cp-dot active"></div>
+          <div class="cp-dot"></div>
+        </div>
+        <button class="cp-arrow-btn" id="cp-next" aria-label="Next platform">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </button>
+      </div>
+
     </div>
   </section>
 
@@ -1181,6 +1218,7 @@
   <script src="sections/Hero/hero.js"></script>
   <script src="sections/Global/api.js"></script>
   <script src="sections/Projects/projects.js"></script>
+  <script src="sections/Competitive/competitive.js"></script>
   <script src="sections/Skills/skills.js"></script>
   <script src="sections/Contact/contact.js"></script>
   <script src="sections/Global/footer.js"></script>
