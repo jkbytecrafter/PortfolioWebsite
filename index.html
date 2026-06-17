@@ -26,7 +26,7 @@
   <link rel="stylesheet" href="sections/Publications/publications.css" />
   <link rel="stylesheet" href="sections/Education/education.css" />
   <link rel="stylesheet" href="sections/Contact/contact.css" />
-  <link rel="stylesheet" href="sections/Codolio/codolio.css" />
+
   <link rel="stylesheet" href="sections/Global/footer.css" />
   <link rel="stylesheet" href="sections/Global/mobile.css" />
 </head>
@@ -705,6 +705,7 @@
           <div class="cp-dropdown-menu" id="cp-dropdown-menu" role="menu">
             <a href="#" data-cp-index="0" role="menuitem"><span class="cp-dd-num">01</span>LeetCode</a>
             <a href="#" data-cp-index="1" role="menuitem"><span class="cp-dd-num">02</span>Codeforces</a>
+            <a href="#" data-cp-index="2" role="menuitem"><span class="cp-dd-num">03</span>Codolio</a>
           </div>
         </div>
       </div>
@@ -810,6 +811,57 @@
             </div>
           </div>
 
+          <!-- Codolio Card -->
+          <div class="cp-card" id="codolio-card">
+            <div class="cp-card-header">
+              <div class="cp-logo">
+                <svg viewBox="0 0 64 64" fill="none" style="width:48px;height:48px">
+                  <ellipse cx="32" cy="36" rx="20" ry="18" fill="#1a1a2e"/>
+                  <circle cx="23" cy="30" r="7" fill="#fff"/>
+                  <circle cx="41" cy="30" r="7" fill="#fff"/>
+                  <circle cx="23" cy="30" r="4" fill="#111"/>
+                  <circle cx="41" cy="30" r="4" fill="#111"/>
+                  <circle cx="24" cy="29" r="1.5" fill="#fff"/>
+                  <circle cx="42" cy="29" r="1.5" fill="#fff"/>
+                  <path d="M27 42 Q32 46 37 42" stroke="#F97316" stroke-width="2" stroke-linecap="round" fill="none"/>
+                  <path d="M20 18 Q23 12 28 16" stroke="#F97316" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                  <path d="M44 18 Q41 12 36 16" stroke="#F97316" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                  <ellipse cx="32" cy="34" rx="4" ry="3" fill="#F97316" opacity="0.7"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="cp-platform">Codolio</h3>
+                <a href="https://codolio.com/profile/jkbytecrafter" target="_blank" rel="noopener" class="cp-handle">@jkbytecrafter ↗</a>
+              </div>
+            </div>
+            <div class="cp-stats-main">
+              <div class="ring-wrap">
+                <svg class="progress-ring" viewBox="0 0 120 120">
+                  <circle class="ring-bg" cx="60" cy="60" r="50" />
+                  <circle class="ring-fill" id="cd-ring" cx="60" cy="60" r="50" stroke-dasharray="314" stroke-dashoffset="314" style="stroke:#F97316" />
+                </svg>
+                <div class="ring-center">
+                  <span class="ring-num" id="cd-solved">–</span>
+                  <span class="ring-label">Solved</span>
+                </div>
+              </div>
+              <div class="cp-breakdown">
+                <div class="cf-stat-row">
+                  <span class="cf-stat-label">Active Days</span>
+                  <span class="cf-stat-val" id="cd-days">–</span>
+                </div>
+                <div class="cf-stat-row">
+                  <span class="cf-stat-label">Questions Solved</span>
+                  <span class="cf-stat-val" id="cd-solved-2">–</span>
+                </div>
+              </div>
+            </div>
+            <div class="cp-footer">
+              <span class="cp-status" id="cd-status">Fetching live data…</span>
+              <a href="https://codolio.com/profile/jkbytecrafter" target="_blank" rel="noopener" class="cp-verify-btn">Verify on Codolio ↗</a>
+            </div>
+          </div>
+
         </div><!-- /cp-track -->
       </div><!-- /cp-carousel-track-wrap -->
 
@@ -823,6 +875,7 @@
         <div class="cp-carousel-dots" id="cp-dots">
           <div class="cp-dot active"></div>
           <div class="cp-dot"></div>
+          <div class="cp-dot"></div>
         </div>
         <button class="cp-arrow-btn" id="cp-next" aria-label="Next platform">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -834,60 +887,6 @@
     </div>
   </section>
 
-  <!-- ===== CODOLIO ===== -->
-  <section id="codolio" class="section">
-    <div class="container">
-      <h2 class="section-title">Codolio <span class="highlight">Profile</span></h2>
-      <p class="section-sub">Stats update in real-time from Codolio</p>
-
-      <div class="codolio-card-wrap reveal">
-        <div class="codolio-card" id="codolio-card">
-
-          <!-- Header -->
-          <div class="codolio-card-header">
-            <div class="codolio-logo-wrap">
-              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <ellipse cx="32" cy="36" rx="20" ry="18" fill="#1a1a2e"/>
-                <circle cx="23" cy="30" r="7" fill="#fff"/>
-                <circle cx="41" cy="30" r="7" fill="#fff"/>
-                <circle cx="23" cy="30" r="4" fill="#111"/>
-                <circle cx="41" cy="30" r="4" fill="#111"/>
-                <circle cx="24" cy="29" r="1.5" fill="#fff"/>
-                <circle cx="42" cy="29" r="1.5" fill="#fff"/>
-                <path d="M27 42 Q32 46 37 42" stroke="#F97316" stroke-width="2" stroke-linecap="round" fill="none"/>
-                <path d="M20 18 Q23 12 28 16" stroke="#F97316" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-                <path d="M44 18 Q41 12 36 16" stroke="#F97316" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-                <ellipse cx="32" cy="34" rx="4" ry="3" fill="#F97316" opacity="0.7"/>
-              </svg>
-            </div>
-            <div>
-              <h3 class="codolio-platform">Codolio</h3>
-              <span class="codolio-handle-static">@jkbytecrafter</span>
-            </div>
-          </div>
-
-          <!-- Stats — non-clickable -->
-          <div class="codolio-stats-grid">
-            <div class="codolio-stat-box">
-              <div class="codolio-stat-label">Questions Solved</div>
-              <div class="codolio-stat-val" id="cd-solved">–</div>
-            </div>
-            <div class="codolio-stat-box">
-              <div class="codolio-stat-label">Active Days</div>
-              <div class="codolio-stat-val" id="cd-days">–</div>
-            </div>
-          </div>
-
-          <!-- Footer -->
-          <div class="codolio-card-footer">
-            <span class="codolio-status-text" id="cd-status">Fetching live data…</span>
-            <a href="https://codolio.com/profile/jkbytecrafter" target="_blank" rel="noopener" class="codolio-verify-btn">Verify on Codolio ↗</a>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ===== AWARDS ===== -->
   <section id="awards" class="section">

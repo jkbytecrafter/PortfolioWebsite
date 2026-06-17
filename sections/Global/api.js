@@ -229,13 +229,14 @@ async function fetchGitHub() {
 fetchLeetCode();
 fetchGitHub();
 
-// Codeforces + redundant LC/GH fetch when CP section is visible
+// Codeforces + Codolio fetch when CP section is visible
 let cpFetched = false;
 const cpSection = document.getElementById('competitive');
 const cpObs = new IntersectionObserver(entries => {
   if (entries[0].isIntersecting && !cpFetched) {
     cpFetched = true;
     fetchCodeforces();
+    fetchCodolio();
     cpObs.disconnect();
   }
 }, { threshold: 0.2 });
@@ -250,9 +251,14 @@ async function fetchCodolio() {
   function apply(solved, days) {
     animateCounter(cdSolved, solved);
     animateCounter(cdDays,   days);
+    // Also fill the duplicate stat in the breakdown column
+    const cdSolved2 = document.getElementById('cd-solved-2');
+    if (cdSolved2) animateCounter(cdSolved2, solved);
+    // Animate the orange ring (scale: 500 solved = 100%)
+    animateRingSVG('cd-ring', solved / 500);
     if (cdStatus) {
       cdStatus.textContent  = '✓ Live – updated just now';
-      cdStatus.style.color  = '#B5179E';
+      cdStatus.style.color  = '#F97316';
     }
     document.getElementById('codolio-card')?.classList.add('data-loaded');
   }
@@ -288,17 +294,5 @@ async function fetchCodolio() {
   }
 }
 
-// Trigger Codolio fetch when section scrolls into view
-const codolioSection = document.getElementById('codolio');
-if (codolioSection) {
-  let codolioFetched = false;
-  const codolioObs = new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting && !codolioFetched) {
-      codolioFetched = true;
-      fetchCodolio();
-      codolioObs.disconnect();
-    }
-  }, { threshold: 0.2 });
-  codolioObs.observe(codolioSection);
-}
+
 
