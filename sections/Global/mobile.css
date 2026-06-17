@@ -22,6 +22,41 @@
   .gh-stat-pills {
     margin-left: 0;
   }
+
+  /* ── Projects carousel ── */
+  .projects-carousel-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .projects-dropdown-menu {
+    right: auto;
+    left: 0;
+    transform-origin: top left;
+  }
+
+  .flip-card {
+    flex: 0 0 calc(85% - 0.5rem);
+    min-width: 260px;
+  }
+
+  .proj-scroll-controls {
+    gap: 0.8rem;
+  }
+
+  /* ── Codolio ── */
+  .codolio-iframe {
+    height: 580px;
+  }
+
+  .codolio-badge-row {
+    gap: 0.6rem;
+  }
+
+  .codolio-badge {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.85rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -40,6 +75,17 @@
   .edu-detail {
     align-items: flex-start;
   }
+
+  /* ── Projects carousel ── */
+  .flip-card {
+    flex: 0 0 90%;
+    min-width: 240px;
+  }
+
+  /* ── Codolio ── */
+  .codolio-iframe {
+    height: 520px;
+  }
 }
 
 @media (max-width: 400px) {
@@ -50,7 +96,6 @@
 }
 
 @keyframes pulse-glow {
-
   0%,
   100% {
     box-shadow: 0 0 0 rgba(91, 35, 255, 0);

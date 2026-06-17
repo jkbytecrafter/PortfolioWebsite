@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="sections/Publications/publications.css" />
   <link rel="stylesheet" href="sections/Education/education.css" />
   <link rel="stylesheet" href="sections/Contact/contact.css" />
+  <link rel="stylesheet" href="sections/Codolio/codolio.css" />
   <link rel="stylesheet" href="sections/Global/footer.css" />
   <link rel="stylesheet" href="sections/Global/mobile.css" />
 </head>
@@ -284,8 +285,36 @@
   <!-- ===== PROJECTS ===== -->
   <section id="projects" class="section">
     <div class="container">
-      <h2 class="section-title">Featured <span class="highlight">Projects</span></h2>
-      <div class="projects-grid">
+
+      <!-- Header row: title + dropdown -->
+      <div class="projects-carousel-header">
+        <h2 class="section-title" style="margin-bottom:0">Featured <span class="highlight">Projects</span></h2>
+        <div class="projects-dropdown-wrap">
+          <button class="projects-dropdown-btn" id="proj-dropdown-btn" aria-label="Browse all projects" aria-haspopup="true" aria-expanded="false">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/>
+              <line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/>
+              <line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
+            </svg>
+            All Projects
+            <svg class="proj-dd-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="projects-dropdown-menu" id="proj-dropdown-menu" role="menu">
+            <a href="#" data-proj-index="0" role="menuitem"><span class="proj-dd-num">01</span>Distributed URL Shortener</a>
+            <a href="#" data-proj-index="1" role="menuitem"><span class="proj-dd-num">02</span>Autonomous Data Analyst</a>
+            <a href="#" data-proj-index="2" role="menuitem"><span class="proj-dd-num">03</span>Hindi News Bias Detector</a>
+            <a href="#" data-proj-index="3" role="menuitem"><span class="proj-dd-num">04</span>Alternative Credit Intelligence</a>
+            <a href="#" data-proj-index="4" role="menuitem"><span class="proj-dd-num">05</span>Drone-to-Map AI System</a>
+            <a href="#" data-proj-index="5" role="menuitem"><span class="proj-dd-num">06</span>Academic Research Assistant</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3D Horizontal Carousel -->
+      <div class="projects-carousel-track-wrap">
+        <div class="projects-carousel-track" id="proj-track">
 
 
         <!-- Project 1 -->
@@ -594,6 +623,29 @@
 
         
 
+        </div><!-- /proj-track -->
+      </div><!-- /proj-carousel-track-wrap -->
+
+      <!-- Scroll controls: prev arrow | dots | next arrow -->
+      <div class="proj-scroll-controls">
+        <button class="proj-arrow-btn" id="proj-prev" aria-label="Previous project">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
+        <div class="proj-carousel-dots" id="proj-dots" aria-label="Project indicators">
+          <div class="proj-dot active"></div>
+          <div class="proj-dot"></div>
+          <div class="proj-dot"></div>
+          <div class="proj-dot"></div>
+          <div class="proj-dot"></div>
+          <div class="proj-dot"></div>
+        </div>
+        <button class="proj-arrow-btn" id="proj-next" aria-label="Next project">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </button>
       </div>
 
       <!-- GitHub Live Stats -->
@@ -741,6 +793,31 @@
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CODOLIO ===== -->
+  <section id="codolio" class="section">
+    <div class="container">
+      <h2 class="section-title">My <span class="highlight">Codolio</span> Profile</h2>
+      <p class="section-sub">Coding journey, problem-solving streaks &amp; activity stats — live from Codolio</p>
+
+      <div class="codolio-section-wrap reveal">
+        <div class="codolio-card-outer">
+          <div class="codolio-glow-bg"></div>
+          <div class="codolio-iframe-container">
+            <iframe
+              src="https://codolio.com/profile/jkbytecrafter/card"
+              class="codolio-iframe"
+              title="Codolio Profile Card – JKByteCrafter"
+              loading="lazy"
+              scrolling="no"
+              frameborder="0"
+              allow=""
+            ></iframe>
+          </div>
+        </div>
       </div>
     </div>
   </section>
