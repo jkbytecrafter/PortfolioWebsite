@@ -242,57 +242,61 @@ const cpObs = new IntersectionObserver(entries => {
 }, { threshold: 0.2 });
 cpObs.observe(cpSection);
 
-// ── CODOLIO — live scrape via allorigins CORS proxy ───────────
+// ── CODOLIO — live fetch via multiple strategies ──────────────
 async function fetchCodolio() {
-  const cdSolved = document.getElementById('cd-solved');
-  const cdDays   = document.getElementById('cd-days');
-  const cdStatus = document.getElementById('cd-status');
+  const cdSolved  = document.getElementById('cd-solved');
+  const cdDays    = document.getElementById('cd-days');
+  const cdStatus  = document.getElementById('cd-status');
+  const cdSolved2 = document.getElementById('cd-solved-2');
 
-  function apply(solved, days) {
+  function apply(solved, days, live = true) {
     animateCounter(cdSolved, solved);
     animateCounter(cdDays,   days);
-    // Also fill the duplicate stat in the breakdown column
-    const cdSolved2 = document.getElementById('cd-solved-2');
     if (cdSolved2) animateCounter(cdSolved2, solved);
-    // Animate the orange ring (scale: 500 solved = 100%)
     animateRingSVG('cd-ring', solved / 500);
     if (cdStatus) {
-      cdStatus.textContent  = '✓ Live – updated just now';
-      cdStatus.style.color  = '#F97316';
+      cdStatus.textContent = live ? '✓ Live – updated just now' : '⚠ Cached – last known values';
+      cdStatus.style.color = live ? '#F97316' : '#a09cc0';
     }
     document.getElementById('codolio-card')?.classList.add('data-loaded');
   }
 
+  // ── Strategy 1: Direct Codolio JSON API ──────────────────
   try {
-    // Fetch the Codolio profile page via a CORS proxy and scrape the numbers
+    const r = await fetch(
+      'https://codolio.com/api/profile/jkbytecrafter',
+      { signal: AbortSignal.timeout(7000) }
+    );
+    if (r.ok) {
+      const d = await r.json();
+      const solved = d?.totalSolved ?? d?.questionsSolved ?? d?.solved ?? null;
+      const days   = d?.activeDays  ?? d?.active_days     ?? d?.days   ?? null;
+      if (solved && days) { apply(solved, days, true); return; }
+    }
+  } catch (_) {}
+
+  // ── Strategy 2: Extract __NEXT_DATA__ from the page HTML ──
+  // Next.js injects all SSR props as JSON into a <script id="__NEXT_DATA__"> tag
+  try {
     const proxyUrl = 'https://api.allorigins.win/raw?url=' +
       encodeURIComponent('https://codolio.com/profile/jkbytecrafter');
-    const res = await fetch(proxyUrl, { signal: AbortSignal.timeout(10000) });
+    const res = await fetch(proxyUrl, { signal: AbortSignal.timeout(12000) });
     if (!res.ok) throw new Error('proxy failed');
     const html = await res.text();
 
-    // Parse the HTML for the two stat numbers
-    // Codolio renders: Questions Solved / Active Days as large numbers
-    const solvedMatch = html.match(/Questions\s*Solved[\s\S]{0,200}?(\d{2,4})/i);
-    const daysMatch   = html.match(/Active\s*Days[\s\S]{0,200}?(\d{2,4})/i);
-
-    const solved = solvedMatch ? parseInt(solvedMatch[1], 10) : null;
-    const days   = daysMatch   ? parseInt(daysMatch[1],   10) : null;
-
-    if (solved && days) {
-      apply(solved, days);
-      return;
+    // Pull out the __NEXT_DATA__ JSON blob
+    const ndMatch = html.match(/<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/i);
+    if (ndMatch) {
+      const str = ndMatch[1];
+      const solvedMatch = str.match(/"(?:totalSolved|questionsSolved|solved)"\s*:\s*(\d+)/);
+      const daysMatch   = str.match(/"(?:activeDays|active_days|days)"\s*:\s*(\d+)/);
+      const solved = solvedMatch ? parseInt(solvedMatch[1], 10) : null;
+      const days   = daysMatch   ? parseInt(daysMatch[1],   10) : null;
+      if (solved && days) { apply(solved, days, true); return; }
     }
-    throw new Error('parse failed');
-  } catch (_) {
-    // Fallback to last-known values from profile screenshot
-    apply(409, 247);
-    if (cdStatus) {
-      cdStatus.textContent = '⚠ Cached – last known values';
-      cdStatus.style.color = '#a09cc0';
-    }
-  }
+    throw new Error('__NEXT_DATA__ parse failed');
+  } catch (_) {}
+
+  // ── Fallback: last-known values ───────────────────────────
+  apply(409, 247, false);
 }
-
-
-
