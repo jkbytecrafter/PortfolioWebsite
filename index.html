@@ -29,6 +29,8 @@
 
   <link rel="stylesheet" href="sections/Global/footer.css" />
   <link rel="stylesheet" href="sections/Global/mobile.css" />
+  <!-- moved inline SVG stroke styles to external file -->
+  <link rel="stylesheet" href="sections/Competitive/competitive-extra.css" />
 </head>
 
 <body>
@@ -202,7 +204,7 @@
             thinking and collaborative leadership to create solutions that genuinely matter.
           </p>
           <div class="about-stats-row">
-            <div class="mini-stat"><span class="mini-num">9.47</span><span class="mini-label">CGPA</span></div>
+            <div class="mini-stat"><span class="mini-num">9.42</span><span class="mini-label">CGPA</span></div>
             <div class="mini-stat"><span class="mini-num">7+</span><span class="mini-label">Major Projects</span></div>
             <div class="mini-stat"><span class="mini-num" id="gh-repos-mini">–</span><span class="mini-label">GitHub
                 Repos</span></div>
@@ -928,7 +930,7 @@
               <div class="ring-wrap">
                 <svg class="progress-ring" viewBox="0 0 120 120">
                   <circle class="ring-bg" cx="60" cy="60" r="50" />
-                  <circle class="ring-fill" id="cd-ring" cx="60" cy="60" r="50" stroke-dasharray="314" stroke-dashoffset="314" style="stroke:#F97316" />
+                  <circle class="ring-fill cd-ring-fill" id="cd-ring" cx="60" cy="60" r="50" stroke-dasharray="314" stroke-dashoffset="314" />
                 </svg>
                 <div class="ring-center">
                   <span class="ring-num" id="cd-solved">–</span>
