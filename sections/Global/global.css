@@ -1,4 +1,4 @@
-/* ===== DESIGN TOKENS — LIGHT MODE (default) ===== */
+                                                                                                                                                                      /* ===== DESIGN TOKENS — LIGHT MODE (default) ===== */
 :root,
 [data-theme="light"] {
   --bg: #FAFAFA;
@@ -147,11 +147,17 @@ body {
   height: 100%;
   object-fit: cover;        /* fills viewport, no letterboxing           */
   z-index: -1;              /* behind body bg and every section          */
-  opacity: 0.20;            /* 80 % transparent                          */
+  opacity: 0.15;            /* dark mode: 85 % transparent               */
   pointer-events: none;     /* scroll & clicks pass straight through      */
   user-select: none;
   -webkit-user-select: none;
   will-change: transform;
+}
+
+/* Light mode: boost opacity so video is actually visible on white bg   */
+:root #site-bg-video,
+[data-theme="light"] #site-bg-video {
+  opacity: 0.55;
 }
 
 a {
