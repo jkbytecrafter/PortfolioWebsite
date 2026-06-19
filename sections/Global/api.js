@@ -265,8 +265,15 @@ function fetchCodolio() {
   const cdStatus  = document.getElementById('cd-status');
   const cdSolved2 = document.getElementById('cd-solved-2');
 
-  const SOLVED = 500;
-  const DAYS   = 250;
+  // ── UPDATE THIS whenever you want to correct the count ──────────────
+  const SOLVED = 501; // ← change this number manually
+  // ─────────────────────────────────────────────────────────────────────
+
+  // Days auto-increment by +1 every day since baseline
+  const BASELINE_DATE = new Date('2026-06-19T00:00:00');
+  const BASELINE_DAYS = 250;
+  const daysSince = Math.floor((Date.now() - BASELINE_DATE) / 86_400_000);
+  const DAYS = BASELINE_DAYS + daysSince;
 
   animateCounter(cdSolved,  SOLVED);
   animateCounter(cdDays,    DAYS);
