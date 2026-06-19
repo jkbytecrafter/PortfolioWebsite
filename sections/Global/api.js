@@ -271,7 +271,7 @@ function fetchCodolio() {
 
   // Days auto-increment by +1 every day since baseline
   const BASELINE_DATE = new Date('2026-06-19T00:00:00');
-  const BASELINE_DAYS = 250;
+  const BASELINE_DAYS = 257;
   const daysSince = Math.floor((Date.now() - BASELINE_DATE) / 86_400_000);
   const DAYS = BASELINE_DAYS + daysSince;
 
