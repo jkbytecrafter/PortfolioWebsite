@@ -265,13 +265,13 @@ function fetchCodolio() {
   const cdStatus  = document.getElementById('cd-status');
   const cdSolved2 = document.getElementById('cd-solved-2');
 
-  const SOLVED = 409;
-  const DAYS   = 247;
+  const SOLVED = 500;
+  const DAYS   = 250;
 
   animateCounter(cdSolved,  SOLVED);
   animateCounter(cdDays,    DAYS);
   if (cdSolved2) animateCounter(cdSolved2, SOLVED);
-  animateRingSVG('cd-ring', SOLVED / 500);
+  animateRingSVG('cd-ring', SOLVED / 600);
 
   syncTextAndColor('cd-status', '✓ Profile data · jkbytecrafter', '#F97316');
   addClassToClones('codolio-card', 'data-loaded');
