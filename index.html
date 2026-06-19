@@ -44,6 +44,23 @@
 
 <body>
 
+  <!-- ===== FULL-PAGE BACKGROUND VIDEO =====
+       Fixed. 80% transparent. Loops forever.
+       Never responds to scroll or clicks.
+  ================================================ -->
+  <video
+    id="site-bg-video"
+    autoplay
+    loop
+    muted
+    playsinline
+    preload="auto"
+    tabindex="-1"
+    aria-hidden="true"
+  >
+    <source src="assets/site-bg.mp4" type="video/mp4" />
+  </video>
+
   <!-- ===== CV MODAL ===== -->
   <div id="cv-modal" class="cv-modal-overlay" role="dialog" aria-modal="true" aria-label="CV Viewer" onclick="handleModalOverlayClick(event)">
     <div class="cv-modal-box">

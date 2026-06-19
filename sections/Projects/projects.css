@@ -233,19 +233,26 @@
 }
 
 .flip-card-front {
-  background: var(--surface);
+  background: var(--dp);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
 }
 
 .flip-card-back {
-  background: linear-gradient(135deg, #6366F11A, #06B6D40D);
+  background: var(--dp);
   border-color: var(--violet);
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 32px rgba(99,102,241,0.28),
+              inset 0 0 60px rgba(99,102,241,0.06);
 }
 
 /* ===== GLOWS ===== */
@@ -355,7 +362,7 @@
 /* ===== GITHUB STATS (Projects section) ===== */
 .gh-stats-card {
   margin-top: 2.5rem;
-  background: var(--surface);
+  background: var(--dp);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1.8rem;
@@ -366,6 +373,9 @@
   position: relative;
   overflow: hidden;
   transition: var(--transition);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
 }
 
 .gh-stats-card::before {
