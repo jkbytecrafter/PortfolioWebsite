@@ -1,22 +1,21 @@
-/* ===== DESIGN TOKENS ===== */
-:root {
+/* ===== DESIGN TOKENS — LIGHT MODE (default) ===== */
+:root,
+[data-theme="light"] {
   --bg: #FAFAFA;
   --bg-alt: #F1F5F9;
   --surface: rgba(0, 0, 0, 0.02);
   --surface-h: rgba(99, 102, 241, 0.08);
   --border: rgba(0, 0, 0, 0.08);
 
-  /* New palette: Indigo, Cyan, Rose */
   --dp: #FFFFFF;
   --violet: #6366F1;
-  --blue-mid: #0891B2;      /* darkened from #06B6D4 for better contrast on light bg */
-  --lime: #B5179E;          /* darkened from #EC4899 for better contrast on light bg */
+  --blue-mid: #0891B2;
+  --lime: #B5179E;
 
-  /* Semantic aliases */
   --coral: #6366F1;
   --cyan: #0891B2;
   --purple: #B5179E;
-  --yellow: #B45309;        /* darkened from #F59E0B for better contrast on light bg */
+  --yellow: #B45309;
   --blue: #0891B2;
   --blue-light: #0284C7;
   --cream: #FFFFFF;
@@ -24,7 +23,30 @@
 
   --text: #020617;
   --text-muted: #334155;
-  --text-dim: #475569;      /* slightly darkened for legibility */
+  --text-dim: #475569;
+
+  /* Navbar */
+  --nav-bg: rgba(250, 250, 250, 0.80);
+  --nav-border: rgba(0, 0, 0, 0.08);
+  --nav-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+
+  /* Section alt */
+  --section-alt-bg: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(6, 182, 212, 0.05) 50%, rgba(236, 72, 153, 0.06) 100%);
+  --section-alt-border: rgba(0,0,0,0.04);
+
+  /* Body gradient */
+  --body-grad1: rgba(99, 102, 241, 0.25);
+  --body-grad2: rgba(6, 182, 212, 0.30);
+  --body-grad3: rgba(236, 72, 153, 0.20);
+
+  /* Toggle */
+  --toggle-bg: rgba(15, 23, 42, 0.08);
+  --toggle-hover: rgba(99, 102, 241, 0.12);
+  --toggle-text: #334155;
+  --toggle-icon: #6366F1;
+
+  /* Cursor */
+  --cursor-dot: #020617;
 
   --font: 'Outfit', sans-serif;
   --mono: 'JetBrains Mono', monospace;
@@ -32,6 +54,56 @@
   --radius: 16px;
   --radius-sm: 8px;
   --transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ===== DESIGN TOKENS — DARK MODE ===== */
+[data-theme="dark"] {
+  --bg: #0B0F1A;
+  --bg-alt: #111827;
+  --surface: rgba(255, 255, 255, 0.03);
+  --surface-h: rgba(99, 102, 241, 0.12);
+  --border: rgba(255, 255, 255, 0.08);
+
+  --dp: #141929;
+  --violet: #818CF8;         /* lighter indigo for dark bg */
+  --blue-mid: #22D3EE;       /* vibrant cyan */
+  --lime: #EC4899;           /* hot pink */
+
+  --coral: #818CF8;
+  --cyan: #22D3EE;
+  --purple: #EC4899;
+  --yellow: #FBBF24;
+  --blue: #38BDF8;
+  --blue-light: #7DD3FC;
+  --cream: #141929;
+  --taupe: #64748B;
+
+  --text: #F1F5F9;
+  --text-muted: #CBD5E1;
+  --text-dim: #94A3B8;
+
+  /* Navbar */
+  --nav-bg: rgba(11, 15, 26, 0.85);
+  --nav-border: rgba(255, 255, 255, 0.07);
+  --nav-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+
+  /* Section alt */
+  --section-alt-bg: linear-gradient(135deg, rgba(99, 102, 241, 0.10) 0%, rgba(6, 182, 212, 0.06) 50%, rgba(236, 72, 153, 0.08) 100%);
+  --section-alt-border: rgba(255,255,255,0.05);
+
+  /* Body gradient */
+  --body-grad1: rgba(99, 102, 241, 0.15);
+  --body-grad2: rgba(6, 182, 212, 0.12);
+  --body-grad3: rgba(236, 72, 153, 0.10);
+
+  /* Toggle */
+  --toggle-bg: rgba(255, 255, 255, 0.08);
+  --toggle-hover: rgba(129, 140, 248, 0.18);
+  --toggle-text: #CBD5E1;
+  --toggle-icon: #818CF8;
+
+  /* Cursor */
+  --cursor-dot: #F1F5F9;
 }
 
 /* ===== RESET ===== */
@@ -52,13 +124,14 @@ body {
   font-family: var(--font);
   background-color: var(--bg);
   background-image: 
-    radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.25) 0%, transparent 60%),
-    radial-gradient(circle at 85% 85%, rgba(6, 182, 212, 0.3) 0%, transparent 60%),
-    radial-gradient(circle at 50% 50%, rgba(236, 72, 153, 0.2) 0%, transparent 80%);
+    radial-gradient(circle at 15% 15%, var(--body-grad1) 0%, transparent 60%),
+    radial-gradient(circle at 85% 85%, var(--body-grad2) 0%, transparent 60%),
+    radial-gradient(circle at 50% 50%, var(--body-grad3) 0%, transparent 80%);
   background-attachment: fixed;
   color: var(--text);
   overflow-x: hidden;
   cursor: none;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 a {
@@ -87,7 +160,7 @@ button {
 #cursor-dot {
   width: 7px;
   height: 7px;
-  background: #000;
+  background: var(--cursor-dot);
   border-radius: 50%;
   position: fixed;
   top: 0;
@@ -145,9 +218,9 @@ body.cursor-hover #cursor-ring {
 }
 
 .section-alt {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(6, 182, 212, 0.05) 50%, rgba(236, 72, 153, 0.06) 100%);
-  border-top: 1px solid rgba(0,0,0,0.04);
-  border-bottom: 1px solid rgba(0,0,0,0.04);
+  background: var(--section-alt-bg);
+  border-top: 1px solid var(--section-alt-border);
+  border-bottom: 1px solid var(--section-alt-border);
 }
 
 .container {

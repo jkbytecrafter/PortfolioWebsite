@@ -1,5 +1,13 @@
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
+  .theme-label {
+    display: none;
+  }
+
+  #theme-toggle {
+    padding: 7px 10px;
+  }
+
   .about-grid {
     grid-template-columns: 1fr;
     text-align: center;
