@@ -599,9 +599,9 @@
 
 /* 2) Hero stats — CGPA / Major Projects / GitHub Repos                      */
 [data-theme="light"] .hero-stat-num {
-  color: #fdfa72;        /* bright yellow from Light Yellow palette              */
+  color: #fcd738 !important;   /* golden yellow — !important overrides any inherited var(--text) */
 }
 
 [data-theme="light"] .hero-stat-label {
-  color: #e1e8a2;        /* muted yellow-green from Golden Frustrating palette   */
+  color: #e1e8a2 !important;   /* muted yellow-green — forced over any inherited colour         */
 }

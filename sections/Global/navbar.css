@@ -152,3 +152,9 @@
   color: var(--text);
   letter-spacing: -0.01em;
 }
+
+/* ===== LIGHT MODE — PALETTE COLOURS ===== */
+/* Nav name sits on the white/near-white navbar — needs dark text to be readable */
+[data-theme="light"] .nav-name {
+  color: #111827;   /* near-black — sharp on light navbar background */
+}
