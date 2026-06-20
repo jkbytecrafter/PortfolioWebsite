@@ -40,6 +40,34 @@
       document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
     })();
   </script>
+
+  <!-- Critical light-mode overrides — inline so they are never browser-cached -->
+  <style>
+    /* Stat number — golden yellow */
+    [data-theme="light"] .hero-stat-num {
+      color: #fcd738 !important;
+    }
+
+    /* Stat label — muted yellow-green */
+    [data-theme="light"] .hero-stat-label {
+      color: #e1e8a2 !important;
+    }
+
+    /* Divider lines between stats — golden yellow, visible on dark video */
+    [data-theme="light"] .hero-stat + .hero-stat {
+      border-left-color: rgba(252, 215, 56, 0.6) !important;
+    }
+
+    /* Divider lines between stats — white, visible in dark mode */
+    [data-theme="dark"] .hero-stat + .hero-stat {
+      border-left-color: rgba(255, 255, 255, 0.5) !important;
+    }
+
+    /* Navbar name: near-black on white navbar bar in light mode */
+    [data-theme="light"] .nav-name {
+      color: #111827 !important;
+    }
+  </style>
 </head>
 
 <body>

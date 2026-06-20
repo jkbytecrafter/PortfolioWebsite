@@ -139,3 +139,21 @@
   margin-top: 4px;
   text-align: center;
 }
+
+/* ===== LIGHT MODE — PALETTE COLOURS ===== */
+/* About Me section — mini-stat boxes and avatar ring                         */
+[data-theme="light"] .mini-stat {
+  border-color: #fcd738;                       /* golden yellow border        */
+  background: rgba(20, 10, 35, 0.50);          /* dark-plum frosted box       */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+[data-theme="light"] .mini-num {
+  color: #fcd738;   /* golden yellow — replaces magenta --lime in light mode  */
+}
+
+[data-theme="light"] .mini-label {
+  color: #e1e8a2;   /* muted yellow-green from Golden Frustrating palette     */
+}
+
