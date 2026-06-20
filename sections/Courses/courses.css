@@ -112,3 +112,34 @@
   border-color: var(--cyan);
   color: var(--cyan);
 }
+
+/* ===== LIGHT MODE — PALETTE COLOURS ===== */
+/* 4) Certifications & Courses — inside white card (--dp = #FFFFFF)            */
+/* Use dark palette entries so text is readable on white card background.     */
+/* Palette: Golden dark gold (#a08224), navy blue (#204d8f)                   */
+[data-theme="light"] .course-score {
+  color: #a08224;   /* dark gold — the big score number on white card         */
+}
+
+[data-theme="light"] .course-title {
+  color: #204d8f;   /* navy blue — card title, max legibility on white        */
+}
+
+[data-theme="light"] .course-inst {
+  color: #a08224;   /* dark mustard — institution name, warm contrast         */
+}
+
+[data-theme="light"] .course-meta {
+  color: #204d8f;   /* navy — meta info row                                  */
+}
+
+[data-theme="light"] .course-btn {
+  color: #204d8f;   /* navy — view certificate button                        */
+  border-color: rgba(32, 77, 143, 0.35);
+}
+
+[data-theme="light"] .course-card:hover .course-btn {
+  color: #204d8f;
+  border-color: #204d8f;
+  background: rgba(32, 77, 143, 0.07);
+}

@@ -417,3 +417,32 @@
 .cp-verify-btn:hover {
   background: #EC48991A;
 }
+
+/* ===== LIGHT MODE — BLACK TEXT INSIDE CARDS ===== */
+[data-theme="light"] .cp-card,
+[data-theme="light"] .cp-dropdown-menu {
+  color: #111827;
+}
+
+[data-theme="light"] .cp-platform {
+  color: #111827;
+}
+
+[data-theme="light"] .ring-label,
+[data-theme="light"] .diff-label,
+[data-theme="light"] .cf-stat-label,
+[data-theme="light"] .cp-dropdown-menu a {
+  color: #374151;
+}
+
+[data-theme="light"] .diff-num {
+  color: #111827;
+}
+
+[data-theme="light"] .cp-status {
+  color: #6B7280;
+}
+
+[data-theme="light"] .cp-arrow-btn {
+  color: #374151;
+}

@@ -61,6 +61,11 @@
     <source src="assets/site-bg.mp4" type="video/mp4" />
   </video>
 
+  <!-- Light-mode scrim: translucent lavender-white veil over the dark canyon video
+       so it reads as a soft pale backdrop rather than a dark theatre screen.
+       Hidden entirely in dark mode (opacity 0 via CSS).                        -->
+  <div id="site-bg-scrim" aria-hidden="true"></div>
+
   <!-- ===== CV MODAL ===== -->
   <div id="cv-modal" class="cv-modal-overlay" role="dialog" aria-modal="true" aria-label="CV Viewer" onclick="handleModalOverlayClick(event)">
     <div class="cv-modal-box">
@@ -158,7 +163,7 @@
             <span class="hero-stat-label">PROJECTS</span>
           </div>
           <div class="hero-stat">
-            <span class="hero-stat-num">9.47</span>
+            <span class="hero-stat-num">9.42</span>
             <span class="hero-stat-label">CGPA</span>
           </div>
           <div class="hero-stat">

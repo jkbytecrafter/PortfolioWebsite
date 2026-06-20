@@ -579,3 +579,29 @@
     display: none;
   }
 }
+
+/* ===== LIGHT MODE — PALETTE COLOURS ===== */
+/* Palette ref: Golden (#ceda4a, #e1e8a2), Light Yellow (#fdfa72), Phoebee teal (#7ac5b2) */
+
+/* 1) “Let’s collaborate” button — outside any box, sits on canyon video         */
+[data-theme="light"] .btn-hero-primary {
+  background: #ceda4a;   /* bright yellow-green from Golden Frustrating palette */
+  color: #1a1200;        /* near-black — max contrast on yellow-green           */
+  border-color: #ceda4a;
+}
+
+[data-theme="light"] .btn-hero-primary:hover {
+  background: #b8c432;
+  border-color: #b8c432;
+  color: #0d0900;
+  box-shadow: 0 8px 28px rgba(206, 218, 74, 0.5);
+}
+
+/* 2) Hero stats — CGPA / Major Projects / GitHub Repos                      */
+[data-theme="light"] .hero-stat-num {
+  color: #fdfa72;        /* bright yellow from Light Yellow palette              */
+}
+
+[data-theme="light"] .hero-stat-label {
+  color: #e1e8a2;        /* muted yellow-green from Golden Frustrating palette   */
+}

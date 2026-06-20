@@ -21,9 +21,9 @@
   --cream: #FFFFFF;
   --taupe: #94A3B8;
 
-  --text: #020617;
-  --text-muted: #334155;
-  --text-dim: #475569;
+  --text: #FFFFFF;         /* Light mode — Headings: pure white, readable over dark canyon */
+  --text-muted: #A8F0A8;   /* Light mode — Body/secondary: soft mint-green */
+  --text-dim: #FDE047;     /* Light mode — Links/accents/buttons: bright golden-yellow */
 
   /* Navbar */
   --nav-bg: rgba(250, 250, 250, 0.80);
@@ -78,9 +78,9 @@
   --cream: #141929;
   --taupe: #64748B;
 
-  --text: #F1F5F9;
-  --text-muted: #CBD5E1;
-  --text-dim: #94A3B8;
+  --text: #F5F0FA;         /* Dark mode — Headings: near-white with faint lavender tint */
+  --text-muted: #C9B8DC;   /* Dark mode — Body/secondary: soft lavender-grey, ~6–10:1 contrast */
+  --text-dim: #E8A0E0;     /* Dark mode — Links/accents/buttons: pink pulled from highlight tones */
 
   /* Navbar */
   --nav-bg: rgba(11, 15, 26, 0.85);
@@ -146,18 +146,36 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;        /* fills viewport, no letterboxing           */
-  z-index: -1;              /* behind body bg and every section          */
-  opacity: 0.15;            /* dark mode: 85 % transparent               */
+  z-index: -2;              /* below the scrim and all page content      */
+  opacity: 0.50;            /* dark mode: 50% — canyon texture stays rich */
   pointer-events: none;     /* scroll & clicks pass straight through      */
   user-select: none;
   -webkit-user-select: none;
   will-change: transform;
 }
 
-/* Light mode: boost opacity so video is actually visible on white bg   */
-:root #site-bg-video,
+/* Light mode: video more visible — scrim is now only a thin contrast veil */
 [data-theme="light"] #site-bg-video {
-  opacity: 0.55;
+  opacity: 0.65;
+}
+
+/* ===== LIGHT-MODE SCRIM ===== */
+/* Thin dark-plum veil — just enough to knock back the canyon's           */
+/* brightest patches so white/green/yellow text stays legible.            */
+/* Does NOT bury the footage — video is the star in light mode too.       */
+#site-bg-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  background: transparent;  /* invisible in dark mode                    */
+  transition: background 0.4s ease;
+}
+
+[data-theme="light"] #site-bg-scrim {
+  background: rgba(20, 10, 35, 0.28); /* dark-plum veil at ~28% — video stays vivid */
 }
 
 a {
@@ -321,3 +339,25 @@ body.cursor-hover #cursor-ring {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ===== LIGHT MODE — SECTION HEADING GRADIENT ===== */
+/* Applies to ALL section titles site-wide:                                   */
+/* Skills & Stacks · Projects · Competitive Programming · Awards & Achievements */
+/* Certifications & Courses · Journals & Publications · Education · Get In Touch */
+/* White (30%) sweeping into golden yellow (#fcd738) — one rule covers them all */
+[data-theme="light"] .section-title {
+  background: linear-gradient(90deg, #FFFFFF 20%, #fcd738 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* The .highlight span inside headings (e.g. "Achievements", "Touch", "Projects")  */
+/* continues the warm sweep: golden yellow → bright yellow-green from palette  */
+[data-theme="light"] .section-title .highlight {
+  background: linear-gradient(135deg, #fcd738 0%, #ceda4a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+

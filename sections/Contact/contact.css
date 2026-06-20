@@ -42,3 +42,40 @@
   transform: translateX(8px);
   background: var(--surface-h);
 }
+
+/* ===== LIGHT MODE — PALETTE COLOURS ===== */
+/* Get In Touch section — tagline outside box, cards need box treatment        */
+/* Palette: Golden (#ceda4a, #e1e8a2), Light Yellow (#fdfa72), Phoebee (#fcd738) */
+
+/* Tagline — outside any box, sits on canyon video */
+[data-theme="light"] .contact-tagline {
+  color: #e1e8a2;   /* muted yellow-green from Golden Frustrating palette     */
+}
+
+/* Contact cards — give them a frosted dark-plum box so text is readable      */
+/* over the bright-patch areas of the canyon video in light mode              */
+[data-theme="light"] .contact-card {
+  background: rgba(20, 10, 35, 0.55);     /* dark-plum frosted box            */
+  border-color: rgba(206, 218, 74, 0.45); /* yellow-green border from palette */
+  color: #ceda4a;                          /* bright yellow-green card text    */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Icon inside card */
+[data-theme="light"] .contact-card svg {
+  color: #fcd738;   /* golden yellow from Phoebee palette                     */
+}
+
+/* Hover state */
+[data-theme="light"] .contact-card:hover {
+  background: rgba(20, 10, 35, 0.72);
+  border-color: #ceda4a;
+  color: #fdfa72;   /* brighter yellow on hover                               */
+  box-shadow: 0 8px 32px rgba(206, 218, 74, 0.18);
+}
+
+[data-theme="light"] .contact-card:hover svg {
+  color: #fdfa72;
+}
+

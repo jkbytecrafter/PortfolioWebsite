@@ -117,3 +117,36 @@
     gap: 1rem;
   }
 }
+
+/* ===== LIGHT MODE — PALETTE COLOURS ===== */
+/* 5) Journals & Publications — inside white card (--dp = #FFFFFF)             */
+/* Dark palette entries ensure readability on the white card surface.         */
+/* Palette: navy blue (#204d8f), dark gold (#a08224)                          */
+[data-theme="light"] .pub-title {
+  color: #204d8f;   /* navy blue — prominent paper title                     */
+}
+
+[data-theme="light"] .pub-authors {
+  color: #a08224;   /* dark gold — author listing                            */
+}
+
+[data-theme="light"] .pub-authors strong {
+  color: #204d8f;   /* navy — highlighted author name stands out             */
+}
+
+[data-theme="light"] .pub-desc {
+  color: #204d8f;   /* navy — abstract / description body text               */
+}
+
+[data-theme="light"] .pub-badge {
+  color: #a08224;   /* dark gold — journal/year/status badges                */
+  background: rgba(160, 130, 36, 0.08);
+}
+
+[data-theme="light"] .pub-btn {
+  color: #204d8f;   /* navy — "View paper" link                              */
+}
+
+[data-theme="light"] .pub-btn:hover {
+  color: #a08224;   /* dark gold on hover — warm accent shift               */
+}

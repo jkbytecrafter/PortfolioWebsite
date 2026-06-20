@@ -480,3 +480,34 @@
 .gh-verify-btn:hover {
   background: #EC48991A;
 }
+
+/* ===== LIGHT MODE — BLACK TEXT INSIDE CARDS ===== */
+/* The global --text/--text-muted/--text-dim are white/green/yellow for        */
+/* readability over the canyon video. Override them back to dark inside cards. */
+[data-theme="light"] .flip-card-front,
+[data-theme="light"] .flip-card-back,
+[data-theme="light"] .gh-stats-card,
+[data-theme="light"] .projects-dropdown-menu {
+  color: #111827;
+}
+
+[data-theme="light"] .proj-title,
+[data-theme="light"] .gh-card-info h3 {
+  color: #111827;
+}
+
+[data-theme="light"] .proj-period,
+[data-theme="light"] .proj-bullets li,
+[data-theme="light"] .gh-pill-label,
+[data-theme="light"] .projects-dropdown-menu a {
+  color: #374151;
+}
+
+[data-theme="light"] .proj-hint,
+[data-theme="light"] .gh-status-text {
+  color: #6B7280;
+}
+
+[data-theme="light"] .proj-arrow-btn {
+  color: #374151;
+}

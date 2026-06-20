@@ -98,3 +98,26 @@
   color: var(--lime);
   font-style: normal;
 }
+
+/* ===== LIGHT MODE — PALETTE COLOURS ===== */
+/* 3) Awards & Achievements — timeline items sit on canyon video (no box bg)  */
+/* Palette: Golden (#ceda4a, #e1e8a2), Phoebee teal (#7ac5b2), Yellow (#fdfa72) */
+[data-theme="light"] .tl-title {
+  color: #ceda4a;   /* bright yellow-green — bold heading over dark video     */
+}
+
+[data-theme="light"] .tl-sub {
+  color: #7ac5b2;   /* soft teal from Phoebee palette — readable subtitle     */
+}
+
+[data-theme="light"] .tl-desc {
+  color: #e1e8a2;   /* muted yellow-green — comfortable body text            */
+}
+
+[data-theme="light"] .tl-desc strong {
+  color: #fdfa72;   /* bright yellow — emphasis text pops                    */
+}
+
+[data-theme="light"] .tl-desc em {
+  color: #fcd738;   /* golden yellow from Phoebee palette — special accents  */
+}
