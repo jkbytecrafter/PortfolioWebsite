@@ -291,6 +291,14 @@
   stroke: var(--blue-mid);
 }
 
+.cd-ring-fill {
+  stroke: #F97316;
+}
+
+.tuf-ring-fill {
+  stroke: #FF4500;
+}
+
 .ring-center {
   position: absolute;
   inset: 0;

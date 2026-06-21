@@ -251,6 +251,7 @@ const cpObs = new IntersectionObserver(entries => {
     cpFetched = true;
     fetchCodeforces();
     fetchCodolio();
+    fetchTakeUForward();
     cpObs.disconnect();
   }
 }, { threshold: 0.2 });
@@ -282,4 +283,27 @@ function fetchCodolio() {
 
   syncTextAndColor('cd-status', '✓ Profile data · jkbytecrafter', '#F97316');
   addClassToClones('codolio-card', 'data-loaded');
+}
+
+// ── TAKEUFORWARD ─────────────────────────────────────────────
+// TakeUForward has no public API — stats are manually maintained.
+// Update SOLVED and STREAK whenever your profile changes.
+function fetchTakeUForward() {
+  const tufSolved  = document.getElementById('tuf-solved');
+  const tufSolved2 = document.getElementById('tuf-solved-2');
+  const tufStreak  = document.getElementById('tuf-streak');
+  const tufStatus  = document.getElementById('tuf-status');
+
+  // ── UPDATE THESE whenever your TUF stats change ─────────────
+  const SOLVED = 270;   // ← total problems solved on TUF
+  const STREAK = 22;    // ← current streak (days)
+  // ─────────────────────────────────────────────────────────────
+
+  animateCounter(tufSolved,  SOLVED);
+  if (tufSolved2) animateCounter(tufSolved2, SOLVED);
+  syncTextAndColor('tuf-streak', STREAK + ' days');
+  animateRingSVG('tuf-ring', SOLVED / 450);
+
+  syncTextAndColor('tuf-status', '✓ Profile data · jkbytecrafter_', '#FF4500');
+  addClassToClones('tuf-card', 'data-loaded');
 }
