@@ -267,7 +267,7 @@ function fetchCodolio() {
   const cdSolved2 = document.getElementById('cd-solved-2');
 
   // ── UPDATE THIS whenever you want to correct the count ──────────────
-  const SOLVED = 550; // ← change this number manually
+  const SOLVED = 560; // ← change this number manually
   // ─────────────────────────────────────────────────────────────────────
 
   // Days auto-increment by +1 every day since baseline
@@ -295,8 +295,8 @@ function fetchTakeUForward() {
   const tufStatus  = document.getElementById('tuf-status');
 
   // ── UPDATE THESE whenever your TUF stats change ─────────────
-  const SOLVED = 270;   // ← total problems solved on TUF
-  const STREAK = 22;    // ← current streak (days)
+  const SOLVED = 300;   // ← total problems solved on TUF
+  const STREAK = 45;    // ← current streak (days)
   // ─────────────────────────────────────────────────────────────
 
   animateCounter(tufSolved,  SOLVED);
