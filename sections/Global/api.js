@@ -267,7 +267,7 @@ function fetchCodolio() {
   const cdSolved2 = document.getElementById('cd-solved-2');
 
   // ── UPDATE THIS whenever you want to correct the count ──────────────
-  const SOLVED = 580; // ← change this number manually
+  const SOLVED = 630; // ← change this number manually
   // ─────────────────────────────────────────────────────────────────────
 
   // Days auto-increment by +1 every day since baseline
